@@ -72,7 +72,10 @@
   </HelpKINode>
   <HelpKINode Title="ChangePasswordSuccess enumeration member" Url="html/fc4403e0-6cd7-cb70-bb8b-6be276ac54fe.htm" />
   <HelpKINode Title="Clear method" Url="html/0d324662-fa2d-21b4-6316-edc0cdc40251.htm" />
-  <HelpKINode Title="Close method" Url="html/2ac9124d-c621-e984-151b-e251f19054cc.htm" />
+  <HelpKINode Title="Close method">
+    <HelpKINode Title="DatabaseConnection.Close Method " Url="html/eb08a2f9-7a9a-d5cf-4cf9-f2487c224594.htm" />
+    <HelpKINode Title="TableBuilder.Close Method " Url="html/2ac9124d-c621-e984-151b-e251f19054cc.htm" />
+  </HelpKINode>
   <HelpKINode Title="Configuration method" Url="html/da4e7993-6d9f-bd18-df8b-825098d7e134.htm" />
   <HelpKINode Title="ConfigureAuth method" Url="html/bf393fff-c3c0-9745-7069-e713c03fe130.htm" />
   <HelpKINode Title="ConfirmPassword property">
@@ -80,9 +83,50 @@
     <HelpKINode Title="RegisterViewModel.ConfirmPassword Property " Url="html/130d4de6-d479-0f3a-cc64-a47622807c5b.htm" />
   </HelpKINode>
   <HelpKINode Title="Contact method" Url="html/51b15b45-79d6-a3fc-8479-59c5eb0c20d1.htm" />
+  <HelpKINode Title="Create method" Url="html/1d021229-9664-834c-5148-759a53edc4ae.htm" />
+  <HelpKINode Title="DatabaseConnection class">
+    <HelpKINode Title="DatabaseConnection Class" Url="html/c46584b4-c012-586c-8076-35754edd51a9.htm" />
+    <HelpKINode Title="about DatabaseConnection class" Url="html/c46584b4-c012-586c-8076-35754edd51a9.htm" />
+    <HelpKINode Title="constructor" Url="html/4df7836c-0d4e-2fac-00c3-241dcfd06ef6.htm" />
+    <HelpKINode Title="methods" Url="html/4f608c9e-8e74-2ac6-b5a4-b9c418de863c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DatabaseConnection.Close method" Url="html/eb08a2f9-7a9a-d5cf-4cf9-f2487c224594.htm" />
+  <HelpKINode Title="DatabaseConnection.DatabaseConnection constructor" Url="html/4df7836c-0d4e-2fac-00c3-241dcfd06ef6.htm" />
+  <HelpKINode Title="DatabaseConnection.Escape method" Url="html/6baae0bb-3ee6-b0ea-fa9d-65bf3b7228aa.htm" />
+  <HelpKINode Title="DatabaseConnection.PrepareCommand method" Url="html/83e183a6-1b79-a637-600c-cd808a9048c6.htm" />
+  <HelpKINode Title="DatabaseConnection.Query method" Url="html/a81f073e-c767-2cbe-9b73-bce262fdbe2b.htm" />
+  <HelpKINode Title="DatabaseConnection.Reopen method" Url="html/24951b20-66e3-09aa-2c20-58d5add3d9b7.htm" />
+  <HelpKINode Title="Delete method" Url="html/457ba59f-6be1-48b6-af13-91b763a40e5b.htm" />
+  <HelpKINode Title="Details method" Url="html/d97b68af-970e-66db-e8d5-7a988d5de513.htm" />
   <HelpKINode Title="Disassociate method" Url="html/6aecce69-6f4a-bc2e-2188-857d33f940cb.htm" />
   <HelpKINode Title="Dispose method" Url="html/247d6501-ded4-f9ff-6dd0-0fa082a14f47.htm" />
+  <HelpKINode Title="Edit method" Url="html/156047a8-5b0f-56f9-a291-8000d6a582b1.htm" />
+  <HelpKINode Title="EnumerateTable method" Url="html/0b763ff7-da61-9bb6-5aa9-9b631774ff34.htm" />
   <HelpKINode Title="Error enumeration member" Url="html/fc4403e0-6cd7-cb70-bb8b-6be276ac54fe.htm" />
+  <HelpKINode Title="Escape method" Url="html/6baae0bb-3ee6-b0ea-fa9d-65bf3b7228aa.htm" />
+  <HelpKINode Title="Estates method" Url="html/1c36cd48-6399-7b8f-c3a7-a8e4af1d5b88.htm" />
+  <HelpKINode Title="EstatesController class">
+    <HelpKINode Title="EstatesController Class" Url="html/91c357a0-20f6-c7d4-e964-0b78fbfb2425.htm" />
+    <HelpKINode Title="about EstatesController class" Url="html/91c357a0-20f6-c7d4-e964-0b78fbfb2425.htm" />
+    <HelpKINode Title="constructor" Url="html/a7875269-0935-d14a-056a-c53b25398cfc.htm" />
+    <HelpKINode Title="methods" Url="html/a03c5057-18d4-c81d-a1cc-64e49c539ffd.htm" />
+    <HelpKINode Title="properties" Url="html/bdbc31bf-f207-90d5-6b14-2ded8d91ab72.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EstatesController.Create method" Url="html/1d021229-9664-834c-5148-759a53edc4ae.htm" />
+  <HelpKINode Title="EstatesController.Delete method" Url="html/457ba59f-6be1-48b6-af13-91b763a40e5b.htm" />
+  <HelpKINode Title="EstatesController.Details method" Url="html/d97b68af-970e-66db-e8d5-7a988d5de513.htm" />
+  <HelpKINode Title="EstatesController.Edit method" Url="html/156047a8-5b0f-56f9-a291-8000d6a582b1.htm" />
+  <HelpKINode Title="EstatesController.EnumerateTable method" Url="html/0b763ff7-da61-9bb6-5aa9-9b631774ff34.htm" />
+  <HelpKINode Title="EstatesController.Estates method" Url="html/1c36cd48-6399-7b8f-c3a7-a8e4af1d5b88.htm" />
+  <HelpKINode Title="EstatesController.EstatesController constructor" Url="html/a7875269-0935-d14a-056a-c53b25398cfc.htm" />
+  <HelpKINode Title="EstatesController.GetContracts method" Url="html/b6b4c8b0-c4d0-78f2-c2be-7e2ba8ebaef1.htm" />
+  <HelpKINode Title="EstatesController.GetEstateTypes method" Url="html/8505e3d6-7e96-8a5d-786c-c14685d6258e.htm" />
+  <HelpKINode Title="EstatesController.GetEstateTypesArr method" Url="html/7381bed7-1ab8-9b7f-ca18-176dad8cc2b1.htm" />
+  <HelpKINode Title="EstatesController.GetProvinces method" Url="html/07e92ed9-f461-f997-8d7f-5d8067035983.htm" />
+  <HelpKINode Title="EstatesController.GetProvincesArr method" Url="html/f12b0369-d7d8-ab99-4596-afd51bfab2b0.htm" />
+  <HelpKINode Title="EstatesController.Index method" Url="html/80e2261a-b1de-6ed4-94ee-00440e9d8e67.htm" />
+  <HelpKINode Title="EstatesController.Residence method" Url="html/11782d28-c8bf-7dfe-ffd8-293f10280f15.htm" />
+  <HelpKINode Title="EstatesController.Search method" Url="html/a66d127a-bb75-9d52-ed71-76444c14ee62.htm" />
   <HelpKINode Title="ExecuteResult method" Url="html/f96d4a93-a177-d6d3-d336-6f29079ec80f.htm" />
   <HelpKINode Title="ExternalLogin method" Url="html/8fbbd61f-168a-61d5-3e00-05353db9abb5.htm" />
   <HelpKINode Title="ExternalLoginCallback method" Url="html/f3eb5f3c-65a1-d966-961d-1845a84b1431.htm" />
@@ -105,6 +149,11 @@
   </HelpKINode>
   <HelpKINode Title="FilterConfig.FilterConfig constructor" Url="html/15a07c29-fb92-46ad-65fa-d37b21dc8bfe.htm" />
   <HelpKINode Title="FilterConfig.RegisterGlobalFilters method" Url="html/debf6a69-85f8-2131-8209-39c4805249d9.htm" />
+  <HelpKINode Title="GetContracts method" Url="html/b6b4c8b0-c4d0-78f2-c2be-7e2ba8ebaef1.htm" />
+  <HelpKINode Title="GetEstateTypes method" Url="html/8505e3d6-7e96-8a5d-786c-c14685d6258e.htm" />
+  <HelpKINode Title="GetEstateTypesArr method" Url="html/7381bed7-1ab8-9b7f-ca18-176dad8cc2b1.htm" />
+  <HelpKINode Title="GetProvinces method" Url="html/07e92ed9-f461-f997-8d7f-5d8067035983.htm" />
+  <HelpKINode Title="GetProvincesArr method" Url="html/f12b0369-d7d8-ab99-4596-afd51bfab2b0.htm" />
   <HelpKINode Title="HasPassword method" Url="html/df86d6fd-80dd-8c92-e80e-f584bba34ddb.htm" />
   <HelpKINode Title="HomeController class">
     <HelpKINode Title="HomeController Class" Url="html/1f585963-f839-4224-97a8-177f9e1f0912.htm" />
@@ -117,8 +166,10 @@
   <HelpKINode Title="HomeController.Contact method" Url="html/51b15b45-79d6-a3fc-8479-59c5eb0c20d1.htm" />
   <HelpKINode Title="HomeController.HomeController constructor" Url="html/66360172-3630-b532-edfc-153fa5ecc682.htm" />
   <HelpKINode Title="HomeController.Index method" Url="html/f0850376-e329-3fde-bc9c-c74da41cf3eb.htm" />
-  <HelpKINode Title="HomeController.Search method" Url="html/54337392-4a4e-5bf8-5348-4e857cd9f4ba.htm" />
-  <HelpKINode Title="Index method" Url="html/f0850376-e329-3fde-bc9c-c74da41cf3eb.htm" />
+  <HelpKINode Title="Index method">
+    <HelpKINode Title="EstatesController.Index Method " Url="html/80e2261a-b1de-6ed4-94ee-00440e9d8e67.htm" />
+    <HelpKINode Title="HomeController.Index Method " Url="html/f0850376-e329-3fde-bc9c-c74da41cf3eb.htm" />
+  </HelpKINode>
   <HelpKINode Title="LinkLogin method" Url="html/6d6eb49b-4154-1e6b-b3f8-6b3ed3f1b5c8.htm" />
   <HelpKINode Title="LinkLoginCallback method" Url="html/e5b5bbeb-d07d-e8a5-0284-c352f5602388.htm" />
   <HelpKINode Title="Login method" Url="html/8562cd7c-4329-11cc-a947-f6781a4ff676.htm" />
@@ -153,6 +204,8 @@
     <HelpKINode Title="LoginViewModel.Password Property " Url="html/2006a5d2-0fc9-0bd2-3848-0e102c9f1c3a.htm" />
     <HelpKINode Title="RegisterViewModel.Password Property " Url="html/d888ec9f-0994-741f-8c8f-02ee9035ae91.htm" />
   </HelpKINode>
+  <HelpKINode Title="PrepareCommand method" Url="html/83e183a6-1b79-a637-600c-cd808a9048c6.htm" />
+  <HelpKINode Title="Query method" Url="html/a81f073e-c767-2cbe-9b73-bce262fdbe2b.htm" />
   <HelpKINode Title="RedirectToLocal method" Url="html/30c2920a-ecde-c963-0333-bde101023b77.htm" />
   <HelpKINode Title="RedirectUri property" Url="html/ce2f4709-756d-1cdf-80e7-12571439e211.htm" />
   <HelpKINode Title="Register method">
@@ -176,6 +229,8 @@
   <HelpKINode Title="RememberMe property" Url="html/2d5161c4-dd90-86cb-12c4-ce8fa0c206d9.htm" />
   <HelpKINode Title="RemoveAccountList method" Url="html/85b0170b-7a0d-77cc-0729-9157c06a7984.htm" />
   <HelpKINode Title="RemoveLoginSuccess enumeration member" Url="html/fc4403e0-6cd7-cb70-bb8b-6be276ac54fe.htm" />
+  <HelpKINode Title="Reopen method" Url="html/24951b20-66e3-09aa-2c20-58d5add3d9b7.htm" />
+  <HelpKINode Title="Residence method" Url="html/11782d28-c8bf-7dfe-ffd8-293f10280f15.htm" />
   <HelpKINode Title="RouteConfig class">
     <HelpKINode Title="RouteConfig Class" Url="html/4c00accb-5924-814f-a120-e21f2393586f.htm" />
     <HelpKINode Title="about RouteConfig class" Url="html/4c00accb-5924-814f-a120-e21f2393586f.htm" />
@@ -184,7 +239,7 @@
   </HelpKINode>
   <HelpKINode Title="RouteConfig.RegisterRoutes method" Url="html/2cbfce7d-0735-3422-8163-5b60448c1fe8.htm" />
   <HelpKINode Title="RouteConfig.RouteConfig constructor" Url="html/51ccfdb9-da91-1c19-8bb9-d1c5f3e82f8d.htm" />
-  <HelpKINode Title="Search method" Url="html/54337392-4a4e-5bf8-5348-4e857cd9f4ba.htm" />
+  <HelpKINode Title="Search method" Url="html/a66d127a-bb75-9d52-ed71-76444c14ee62.htm" />
   <HelpKINode Title="SetHeaderTitle method" Url="html/05d5db2c-eda6-2f30-2851-56497b2afeed.htm" />
   <HelpKINode Title="SetPasswordSuccess enumeration member" Url="html/fc4403e0-6cd7-cb70-bb8b-6be276ac54fe.htm" />
   <HelpKINode Title="SignInAsync method" Url="html/81d5d314-468f-bf7e-897f-a0da487211e7.htm" />
@@ -215,7 +270,9 @@
   <HelpKINode Title="TestSite.Controllers.AccountController class" Url="html/44bfa3c4-001e-e8f4-9854-f13f16bbbe59.htm" />
   <HelpKINode Title="TestSite.Controllers.AccountController.ChallengeResult class" Url="html/c0520cbf-c770-2d1c-858a-d7b14a8f275c.htm" />
   <HelpKINode Title="TestSite.Controllers.AccountController.ManageMessageId enumeration" Url="html/fc4403e0-6cd7-cb70-bb8b-6be276ac54fe.htm" />
+  <HelpKINode Title="TestSite.Controllers.EstatesController class" Url="html/91c357a0-20f6-c7d4-e964-0b78fbfb2425.htm" />
   <HelpKINode Title="TestSite.Controllers.HomeController class" Url="html/1f585963-f839-4224-97a8-177f9e1f0912.htm" />
+  <HelpKINode Title="TestSite.DatabaseConnection class" Url="html/c46584b4-c012-586c-8076-35754edd51a9.htm" />
   <HelpKINode Title="TestSite.FilterConfig class" Url="html/3452ea5f-b1f2-9d86-72f0-37ad04820e4d.htm" />
   <HelpKINode Title="TestSite.Models namespace" Url="html/ca3d9cbf-7a82-87b6-c7f8-bd6ad81df383.htm" />
   <HelpKINode Title="TestSite.Models.ApplicationDbContext class" Url="html/ea12ee65-18a3-1bc1-2f94-c1712269ca6a.htm" />
