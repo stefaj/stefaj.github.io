@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>My Hakyll Blog - Hidden Markov Models</title>
+        <!--<link rel="stylesheet" type="text/css" href="/css/default.css" /> -->
+		
+		
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		
+		<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+		</script>
+
+
+    </head>
+    <body>
+		
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				  <div class="container">
+					<div class="navbar-header" id="header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+					  <a class="navbar-brand" id="logo" href="#">Musings of Stefan J</a>
+					</div>
+					<div id="navbar" class="collapse navbar-collapse">
+					  <ul class="nav navbar-nav">
+						<li><a href="../">Home</a></li>
+						<li><a href="../about.html">About</a></li>
+						<li><a href="../contact.html">Contact</a></li>
+						<li><a href="../archive.html">Archive</a></li>
+					  </ul>
+					</div><!--/.nav-collapse -->
+				  </div>
+			</nav>
+			
+			
+		<br><br>
+
+
+		<div class="container">
+			<div class="rowaa">
+				<div id="content">
+					<h1>Hidden Markov Models</h1>
+
+					<div class="info">
+    
+    
+</div>
+
+<h2 id="introduction">Introduction</h2>
+<p>HMM are stochastic methods that are used to model sequential data such as speech and gesture recognition. Both the underlying process which is hidden is stochastic and the observable process. Only a first order HMM will be considered.</p>
+<p>Under the Markov property, the next state is only dependent on the current state of the system. Such states may not be known and may be hidden from the observer as only the output values are observable. When an event is generated from a state, the model moves into a new state based on its transition probabilities. The term hidden is commonly used to indicate that many different state sequences can generate the same observed sequence of events.</p>
+<p>The  is formally defined by the triple: [= (A,B,) ] where A is the transition matrix, B the emission matrix and <span class="math inline"><em>ã</em></span> the initial state vector. Let <span class="math inline"><em>S</em></span> be the set of states, <span class="math inline"><em>V</em></span> the set of observations, <span class="math inline"><em>Q</em></span> a fixed state sequence of length <span class="math inline"><em>T</em></span> and <span class="math inline"><em>O</em></span> a corresponding observation sequence. The transition probabilities are then given by: [ A = P(q_t = s_j | q_{t-1} = s_i) ] and the emission probabilities are given by: [ B = P(o_t = v_k | q_t = s_i) ] and the initial state probabilities by: [ = P(q_1 = s_i) ]</p>
+<p>Given a sequence of observations, we want to compute the probability of an observation sequence given the model.</p>
+<p>The probability of the observation sequence <span class="math inline"><em>O</em></span> for a state sequence is given by: [ P(O|Q,) = ^T_{t=1} P(o_t | q_t,) ] The probability of the state sequence is simply a product of the state path: [ P(Q|)= <em>{q_1}a</em>{q_1 q_2} a_{q_{T-1} q_T} ] Thus the probability of the observations given the model can be calculated by: [ P(O|) = _Q P(O|Q,) P(Q|) ]</p>
+<p>The forward algorithm calculates this efficiently by caching previous calculations.</p>
+<h2 id="training">Training</h2>
+<p>A variety of learning algorithms exist which compute the structure of the model and also calculate the emission and transmission matrices. The Baum-Welch is an unsupervised learning algorithm which re-estimates the parameters <span class="math inline">(<em>A</em>,
