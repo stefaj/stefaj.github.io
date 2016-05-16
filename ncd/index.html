@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Normalized Compression Distance">
+<meta name="keywords" content="information,  normalized, compression, distance">
+<title>Normalized Compression Distance  | Algorithms</title>
+<link rel="stylesheet" href="/css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="/css/modern-business.css">
+<link rel="stylesheet" href="/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/css/customstyles.css">
+<link rel="stylesheet" href="/css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://stefanj.me/feed.xml">
+
+
+
+
+ 
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+
+    <!-- Include me or rape -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="/">&nbsp;<span class="projectTitle"> Algorithms</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "Algorithms feedback";
+var body = "I have some feedback about the Normalized Compression Distance page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:stefanj@encrunch.com?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: '/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Normalized Compression Distance">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Algorithms 1.0</li>
+    
+    
+    
+        
+    
+    <li>
+        <a href="#">General</a>
+        <ul>
+            
+            
+            
+            <li><a href="/arrays/">Arrays</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Machine Learning</a>
+        <ul>
+            
+            
+            
+            <li><a href="/hmm/">Hidden Markov Models</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/markovchains/">Markov Chains</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Metrics</a>
+        <ul>
+            
+            
+            
+            <li class="active"><a href="/ncd/">Normalized Compression Distance</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Normalized Compression Distance</h1>
+</div>
+
+<div class="post-content">
+
+   
+    <div class="summary">Normalized Compression Distance</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+    
+
+    
+
+    <a target="_blank" href="https://github.com/stefan-j/stefan-j.github.io/ncd/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+
+    
+
+  <h2 id="normalized-compression-distance">Normalized Compression Distance</h2>
+
+<h3 id="background">Background</h3>
+<p>The Kolmogorov complexity of a piece of text is the measure of the computable resources needed to specify the text. The complexity of a string is the length of the shortest possible description of the string in a fixed universal description language Kolmogorov1998387.</p>
+
+<p>The information distance between two string \(x\) and \(y\) is defined as the length of the shortest program \(p\) that can compute \(x\) from \(y\) and \(y\) from \(x\)
+The length of \(p\) can be expressed using Kolmogorov complexity 681318:
+\[ |p| = \max\{K(x|y), K(y|x)\}  \]</p>
+
+<p>The information distance \(p\) is a absolute measure. A more useful similarity metric is one that expresses the distance in relative terms. 
+The NID is given by : 
+\[ \text{NID}(x,y) = \frac{\max\{K(x|y),K(y|x)\}}{\max\{K(x),K(y)\}} \]</p>
+
+<p>The concept of \ac{NID} is important, however it is not computable. 
+An approximation of the normalized information distance is commonly used.  \(K(x)\) is approximated by \(Z(x)\) where \(Z(x)\) is the binary length of a data \(x\) compressed by a compressor \(Z\).
+\[NCD(x,y) = \frac{Z(xy) - \min\{ Z(x), Z(y) \}}{\max\{ Z(x), Z(y) \}} \]
+where \(Z(xy)\) is the length of \(x+y\) compressed by \(Z\).</p>
+
+<p>Any good compressor may be used for \(Z\) such as:</p>
+
+<ul>
+  <li>Gzip</li>
+  <li>Bzip2</li>
+  <li>Lempel-Ziv and its variations</li>
+</ul>
+
+<h3 id="literature">Literature</h3>
+<p>Normalized compression distance has been used in a variety of cases. It has been used in applications of general clustering and classification of data in arbitrary domains. This includes music classification 1412045.</p>
+
+<p>Cilibrasi and Vitiyani used the Normalized Compression Distance to approximate the Kolmogorov Distance between different musical pieces as a method to compute clusters of music. The MIDI files were pre-processed such that when two notes occur at the same time only the note with the highest pitch is kept. The music was represented as a string and the distances between different musical pieces was computed.</p>
+
+<p>Ctaltepe, Sonmez and Adali used the normalized compression distance and used it to classify music pieces using k-nearest neighbors Cataltepe2005. 
+The training data has a label associated. The closest \(k\) training data (by NCD) to a song is obtained and the most frequent label in the \(k\) set is used to classify the musical piece. 
+Ctaltepe Sonmez and Adali found that the distance measure works better when more training data is available and the performance is dependent on how the input data is pre processed. 
+The best results were obtained when the midi files were sampled at $1$ms and the $k=1$ nearest neighbor identification was used. 
+The music was represented in the following format: outputting the first note and then the difference in pitch between consecutive notes. Using the above means a classification accuracy of 79% was achieved on 57 midi files.</p>
+
+<p>Li and Sleep have also found that the 1-nearest neighbor with a Lempel-Zip compressor outperformed more complex statistical methods and compressors. Using relative pitch intervals in the music representation outperformed using absolute pitches. A performance of 92.35% was obtained Ling2004.
+The midi files were organized into four categories Beethoven (302 files), Haydn (261 files), Chinese (80 files) and Jazz (128 files). The dataset is unbalanced and the study does not make it clear which partition of the dataset was used as training samples and what partition was used for verification.</p>
+
+<p>In Alfonseca2007 it was found that the normalized compression distance serves as a promising fitness function for genetic algorithms for automatic music generation. Thus NCD may be viably used as a fitness function for a genetic algorithm and as a metric to help classify music.</p>
+
+
+<div class="tags">
+    
+    <b>Tags: </b>
+    
+    
+    
+    
+    
+</div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 Stefan Jacholke. All rights reserved. <br />
+<p>Page last updated:</span> March 20, 2016<br/> Site last generated: May 16, 2016 <br />
+<p><img src="/images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+    <script>
+    jQuery(function ($) {
+        $('.post-content').annotator()
+                .annotator('setupPlugins', {tokenUrl: 'http://example.com/api/token'})
+    });
+    </script>
+</body>
+
+</html>

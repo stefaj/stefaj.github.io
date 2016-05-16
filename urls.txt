@@ -9,54 +9,35 @@
 
 
  
-:
-  title: "Get started"
-  url: /
-  link: <a href="/">Get started</a>
-
-
- 
-mydoc_release_notes_50:
-  title: "5.0 Release notes"
-  url: /mydoc_release_notes_50/
-  link: <a href="/mydoc_release_notes_50/">5.0 Release notes</a>
-
-
- 
-mydoc_introduction:
-  title: "Introduction"
-  url: /mydoc_introduction/
-  link: <a href="/mydoc_introduction/">Introduction</a>
-
-
- 
-mydoc_supported_features:
-  title: "Supported features"
-  url: /mydoc_supported_features/
-  link: <a href="/mydoc_supported_features/">Supported features</a>
-
-
- 
-mydoc_about:
-  title: "About the theme author"
-  url: /mydoc_about/
-  link: <a href="/mydoc_about/">About the theme author</a>
-
-
- 
-mydoc_support:
-  title: "Support"
-  url: /mydoc_support/
-  link: <a href="/mydoc_support/">Support</a>
-
-
-
-
- 
 arrays:
   title: "Arrays"
   url: /arrays/
   link: <a href="/arrays/">Arrays</a>
+
+
+
+
+ 
+hmm:
+  title: "Hidden Markov Models"
+  url: /hmm/
+  link: <a href="/hmm/">Hidden Markov Models</a>
+
+
+ 
+markovchains:
+  title: "Markov Chains"
+  url: /markovchains/
+  link: <a href="/markovchains/">Markov Chains</a>
+
+
+
+
+ 
+ncd:
+  title: "Normalized Compression Distance"
+  url: /ncd/
+  link: <a href="/ncd/">Normalized Compression Distance</a>
 
 
 

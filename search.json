@@ -1,6 +1,16 @@
 [
 
 
+{
+"title": "Interesting Words",
+"tags": "",
+"keywords": "",
+"url": "/mydoc/2015-11-28-interesting_words/",
+"summary": ""
+},
+
+
+
 
 
 {
@@ -156,6 +166,16 @@
 
 
 {
+"title": "Dijkstra Quotes",
+"tags": "general",
+"keywords": "dijkstra",
+"url": "/dijkstraquotes/",
+"summary": "Dijkstra Quotes"
+},
+
+
+
+{
 "title": "Excluding files",
 "tags": "single_sourcing",
 "keywords": "exclusion, separating outputs, removing files from outputs",
@@ -201,6 +221,16 @@
 "keywords": "API, content API, UI text, inline help, context-sensitive help, popovers, tooltips",
 "url": "/mydoc_help_api/",
 "summary": "You can loop through files and generate a JSON file that developers can consume like a help API. Developers can pull in values from the JSON into interface elements, styling them as popovers for user interface text, for example. The beauty of this method is that the UI text remains in the help system (or at least in a single JSON file delivered to the dev team) and isn't hard-coded into the UI."
+},
+
+
+
+{
+"title": "Hidden Markov Models",
+"tags": "probabilitymarkovmachine learning",
+"keywords": "hidden, markov, model",
+"url": "/hmm/",
+"summary": "Hidden Markov Models"
 },
 
 
@@ -291,6 +321,26 @@
 "keywords": "labels, buttons, bootstrap, api methods",
 "url": "/mydoc_labels/",
 "summary": "Labels are just a simple Bootstrap component that you can include in your pages as needed. They represent one of many Bootstrap options you can include in your theme."
+},
+
+
+
+{
+"title": "Markov Chains",
+"tags": "probabilitymarkov",
+"keywords": "markov, chains, chain",
+"url": "/markovchains/",
+"summary": "Markov Chains"
+},
+
+
+
+{
+"title": "Normalized Compression Distance",
+"tags": "information",
+"keywords": "normalized, compression, distance",
+"url": "/ncd/",
+"summary": "Normalized Compression Distance"
 },
 
 
