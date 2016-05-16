@@ -86,6 +86,16 @@
 
 
 {
+"title": "Dimensioning Arrays",
+"tags": "general",
+"keywords": "dimensions, arrays",
+"url": "/arrays/",
+"summary": "2D arrays as 1D"
+},
+
+
+
+{
 "title": "Build arguments",
 "tags": "publishing",
 "keywords": "building, serving, serve, build",
@@ -281,16 +291,6 @@
 "keywords": "labels, buttons, bootstrap, api methods",
 "url": "/mydoc_labels/",
 "summary": "Labels are just a simple Bootstrap component that you can include in your pages as needed. They represent one of many Bootstrap options you can include in your theme."
-},
-
-
-
-{
-"title": "Navtabs",
-"tags": "formatting",
-"keywords": "navigation tabs, hide sections, tabbers, interface tabs",
-"url": "/mydoc_navtabs/",
-"summary": "Navtabs provide a tab-based navagation directly in your content, allowing users to click from tab to tab to see different panels of content. Navtabs are especially helpful for showing code samples for different programming languages. The only downside to using navtabs is that you must use HTML instead of Markdown."
 },
 
 
