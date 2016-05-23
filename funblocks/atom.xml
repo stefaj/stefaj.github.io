@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>FunBlocks</title>
+ <link href="http://stefanj.me/funblocks//funblocks/atom.xml" rel="self"/>
+ <link href="http://stefanj.me/funblocks//funblocks/"/>
+ <updated>2016-05-23T23:24:26+00:00</updated>
+ <id>http://stefanj.me/funblocks/</id>
+ <author>
+   <name>Stefan Jacholke</name>
+   <email>stefanjacholke@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Visual functional block-based programming language for CodeWorld</title>
+   <link href="http://stefanj.me/funblocks//2016/05/23/project-proposal/"/>
+   <updated>2016-05-23T00:00:00+00:00</updated>
+   <id>http://stefanj.me/funblocks//funblocks/2016/05/23/project-proposal</id>
+   <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/coeFzag.png&quot; alt=&quot;blockly&quot; title=&quot;blockly&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The goal of this project is to develop a functional-based visual blocks-based programming language, similar to Scratch and other languages, that is based on a subset of Haskell.
+The project will extend CodeWorld and will use its API. The project will feature a user interface to allow the user to snap, drag and drop blocks in order to construct CodeWorld programs.&lt;/p&gt;
+
+&lt;p&gt;The language will be a prototype as a full language is beyond the current scope and timeframe. Future work and stretch goals are presented as well.&lt;/p&gt;
+
+&lt;p&gt;The project is an extension to CodeWorld, which is an educational web-based programming environment
+A visual language is a great way to get students started with programming and a functional language might be well suited to such composition.&lt;/p&gt;
+
+&lt;h2 id=&quot;outline&quot;&gt;Outline&lt;/h2&gt;
+
+&lt;h3 id=&quot;user-interface&quot;&gt;User interface&lt;/h3&gt;
+&lt;p&gt;Development of a friendly user interface.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A user-friendly interface will be designed and implemented&lt;/li&gt;
+  &lt;li&gt;Bootstrap or a similar HTML/CSS framework will be used to design the interface. The user interface logic will be implemented using Javascript and Jquery.&lt;/li&gt;
+  &lt;li&gt;The user interface of the project will utilize &lt;a href=&quot;https://developers.google.com/blockly/&quot;&gt;Blockly&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Blockly will be adapted to match the functional style and various blocks will be created in order to match the CodeWorld API.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;generator&quot;&gt;Generator&lt;/h3&gt;
+&lt;p&gt;Haskell code generation&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Blockly applications turn blocks into code in order to execute.&lt;/li&gt;
+  &lt;li&gt;The project will generate valid Haskell CodeWorld programs from the blocks.&lt;/li&gt;
+  &lt;li&gt;The code generation will be done using GHCJS with an intermediate block language layer handling the visual language before generating valid CodeWorld code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;blocks&quot;&gt;Blocks&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Each shape represents a type. A block (that consists of a shape) will have multiple slots or parameters into which other blocks can be inserted.&lt;/li&gt;
+  &lt;li&gt;Allow creation of top-level definition blocks / functions than can be reused. A separate tab/panel for construction of definitions will be available in the interface&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;validation-and-error-messages&quot;&gt;Validation and Error messages&lt;/h3&gt;
+&lt;p&gt;Validation and verification of a valid program.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ensure only valid programs can be constructed. Blocks should only be able to be connected if their types match.&lt;/li&gt;
+  &lt;li&gt;If snapping does not occur, visually tell the user why (tell them what type was expected, if possible)&lt;/li&gt;
+  &lt;li&gt;If an error does occur it should be displayed in a friendly manner.&lt;/li&gt;
+  &lt;li&gt;When hovering over a slot it should display what input type is expected.&lt;/li&gt;
+  &lt;li&gt;Blocks should indicate their output type.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;polymorphic-types&quot;&gt;Polymorphic types&lt;/h3&gt;
+&lt;p&gt;Some blocks will have to handle polymorphic types.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Blocks may have multiple slots; if a slot gets connected the other slots might change color if the are the same type. 
+For example, if we have an IF (condition) (consequence) (alternative) block then when either consequence or alternative is connected the other slot should reflect the same type.&lt;/li&gt;
+  &lt;li&gt;Blocks might also change color to reflect their type.&lt;/li&gt;
+  &lt;li&gt;Minimal handling of polymorphic types will be included in order to accommodate CodeWorld’s API. Complete integration is seen as a stretch goal (if time allows).&lt;/li&gt;
+  &lt;li&gt;User data can be constructed from a set of basic types. Constructors and destructors will allow manipulations of the data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;codeworld-integration&quot;&gt;CodeWorld integration&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Blocks to reflect CodeWorld functions and data types, such that CodeWorld programs can be built.&lt;/li&gt;
+  &lt;li&gt;Most CodeWorld functions are monomorphic, however, simulations require a polymorphic state/world type. We propose that such data types be constructed from existing primitive types using constructors and destructors.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-might-need-to-be-excluded&quot;&gt;What might need to be excluded&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Custom algebraic data types. Since blocks are predefined there may not be a way to extract data from a user-defined data type.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;timeline&quot;&gt;Timeline&lt;/h2&gt;
+
+&lt;p&gt;Weekly communication will be made with the mentor to ensure the project is on track.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Before June 12&lt;/strong&gt; - Research into current visual block-based programming languages such as Scratch, what good ideas they utilize and what can be carried over to this project. Research into some of the current problems that a functional based visual programming language faces.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;June 12th&lt;/strong&gt; - &lt;em&gt;Deliverable&lt;/em&gt; - Mock up design of the user interface. Overview of what blocks might be supported.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;June 13th - June 30th&lt;/strong&gt; - Design of the functional block based language. Set up of CodeWorld and Blockly&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;July 1st - July 30th&lt;/strong&gt; - Setup of a basic interface, incorporate Blockly and interface with CodeWorld. Discover and overcome unsuspected challenges&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;July 31st&lt;/strong&gt; - &lt;em&gt;Deliverable&lt;/em&gt; - Basic user interface set up. A basic program should be able to built using the user interface.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;August 1st - August 15th&lt;/strong&gt; - Implement Codeworld functions and types. Complete Blockly code generation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;August 16th&lt;/strong&gt; - &lt;em&gt;Deliverable&lt;/em&gt; - CodeWorld example programs should be able to be built.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;August 16th - September 2nd&lt;/strong&gt; - Polish user interface, improve error messages, fix bugs. Some leeway for the unexpected.&lt;/p&gt;
+
+&lt;p&gt;I have limited availability from 4 - 7 September due to a conference. It does not seem to interfere with any important dates.&lt;/p&gt;
+
+&lt;p&gt;I will communicate with my mentor if there are any other difficulties.&lt;/p&gt;
+
+&lt;h2 id=&quot;stretch-goals&quot;&gt;Stretch Goals&lt;/h2&gt;
+
+&lt;p&gt;If time allows and a good solution presents itself the following may be implemented (but is not part of the core project), otherwise they are presented as good ideas for future versions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pattern Matching&lt;/li&gt;
+  &lt;li&gt;Support for ADT’s&lt;/li&gt;
+  &lt;li&gt;Support for editing list comprehensions, live previews of list comprehensions&lt;/li&gt;
+  &lt;li&gt;Full recursion support&lt;/li&gt;
+  &lt;li&gt;First class functions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;about-me&quot;&gt;About me&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Name&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Stefan Jacholke&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;University&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;NWU Potchefstroom&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Course&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;M.Eng Computer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Degree&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;B.Eng Computer and Electronic&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Email&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;stefanjacholke@gmail.com&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Github&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/stefan-j&quot;&gt;https://github.com/stefan-j&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;I’m a first-year computer engineering graduate student at NWU in South Africa, studying Network Optimization and Planning.&lt;/p&gt;
+
+&lt;p&gt;My current interests include Programming Languages, Algorithms, and Data structures.&lt;/p&gt;
+
+&lt;p&gt;While I have only recently started developing in Haskell I have used it for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Developing my own simple programming language&lt;/li&gt;
+  &lt;li&gt;Developed a simple math expression simplifier&lt;/li&gt;
+  &lt;li&gt;Am currently developing a mobile coffee purchases mobile application; the backend for the application is written in Haskell (that handles credit card purchases, queries to the POS system, interface between app and
+  database)&lt;/li&gt;
+  &lt;li&gt;Using Haskell for algorithmic problems (HackerRank, Codejam)&lt;/li&gt;
+  &lt;li&gt;Used &lt;a href=&quot;https://github.com/stefan-j/cplex-haskell&quot;&gt;FFI binding to interface with CPLEX&lt;/a&gt; (commercial linear programming solver)&lt;/li&gt;
+  &lt;li&gt;Using it to develop my framework for Metro Ethernet optimization  (Master’s project)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I have experience in Web development, mostly through some of my pregraduate
+courses. In particular, I have:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Developed a Real Estate web site for advertisements using ASP.NET, MySQL, and ReactJS&lt;/li&gt;
+  &lt;li&gt;Developed a File management site for uploading and downloading files (similar to dropbox, though simpler) using PHP, Bootstrap and Jquery and AJAX&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Various experience with other technologies (though unrelated to project at hand). I also have a few other projects in different languages.&lt;/p&gt;
+
+&lt;p&gt;I have some small open source contributions listed on my Github profile.&lt;/p&gt;
+
+&lt;p&gt;More information can be given on request.&lt;/p&gt;
+
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;/h2&gt;
+&lt;p&gt;This project is based on Chris Smith’s &lt;a href=&quot;https://github.com/google/codeworld/issues/85&quot;&gt;proposal for a block-based UI for CodeWorld&lt;/a&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+
+</feed>

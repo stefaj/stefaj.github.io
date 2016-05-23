@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      FunBlocks &middot; A functional block-based language
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/funblocks/public/css/poole.css">
+  <link rel="stylesheet" href="/funblocks/public/css/syntax.css">
+  <link rel="stylesheet" href="/funblocks/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/funblocks/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/funblocks/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Visual functional block-based programming language for CodeWorld</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/funblocks/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+
+<!--    <a class="sidebar-nav-item" href="https://github.com/stefan-j/FunBlocks/archive/v1.0.0.zip">Download</a> -->
+    <a class="sidebar-nav-item" href="https://github.com/stefan-j/FunBlocks">GitHub project</a>
+    <!-- <span class="sidebar-nav-item">Currently v1.0.0</span> -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2016. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/funblocks/" title="Home">FunBlocks</a>
+            <small>A functional block-based language</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/funblocks//2016/05/23/project-proposal/">
+        Visual functional block-based programming language for CodeWorld
+      </a>
+    </h1>
+
+    <span class="post-date">23 May 2016</span>
+
+    <h2 id="introduction">Introduction</h2>
+
+<p><img src="http://i.imgur.com/coeFzag.png" alt="blockly" title="blockly" /></p>
+
+<p>The goal of this project is to develop a functional-based visual blocks-based programming language, similar to Scratch and other languages, that is based on a subset of Haskell.
+The project will extend CodeWorld and will use its API. The project will feature a user interface to allow the user to snap, drag and drop blocks in order to construct CodeWorld programs.</p>
+
+<p>The language will be a prototype as a full language is beyond the current scope and timeframe. Future work and stretch goals are presented as well.</p>
+
+<p>The project is an extension to CodeWorld, which is an educational web-based programming environment
+A visual language is a great way to get students started with programming and a functional language might be well suited to such composition.</p>
+
+<h2 id="outline">Outline</h2>
+
+<h3 id="user-interface">User interface</h3>
+<p>Development of a friendly user interface.</p>
+
+<ul>
+  <li>A user-friendly interface will be designed and implemented</li>
+  <li>Bootstrap or a similar HTML/CSS framework will be used to design the interface. The user interface logic will be implemented using Javascript and Jquery.</li>
+  <li>The user interface of the project will utilize <a href="https://developers.google.com/blockly/">Blockly</a>.</li>
+  <li>Blockly will be adapted to match the functional style and various blocks will be created in order to match the CodeWorld API.</li>
+</ul>
+
+<h3 id="generator">Generator</h3>
+<p>Haskell code generation</p>
+
+<ul>
+  <li>Blockly applications turn blocks into code in order to execute.</li>
+  <li>The project will generate valid Haskell CodeWorld programs from the blocks.</li>
+  <li>The code generation will be done using GHCJS with an intermediate block language layer handling the visual language before generating valid CodeWorld code.</li>
+</ul>
+
+<h3 id="blocks">Blocks</h3>
+<ul>
+  <li>Each shape represents a type. A block (that consists of a shape) will have multiple slots or parameters into which other blocks can be inserted.</li>
+  <li>Allow creation of top-level definition blocks / functions than can be reused. A separate tab/panel for construction of definitions will be available in the interface</li>
+</ul>
+
+<h3 id="validation-and-error-messages">Validation and Error messages</h3>
+<p>Validation and verification of a valid program.</p>
+
+<ul>
+  <li>Ensure only valid programs can be constructed. Blocks should only be able to be connected if their types match.</li>
+  <li>If snapping does not occur, visually tell the user why (tell them what type was expected, if possible)</li>
+  <li>If an error does occur it should be displayed in a friendly manner.</li>
+  <li>When hovering over a slot it should display what input type is expected.</li>
+  <li>Blocks should indicate their output type.</li>
+</ul>
+
+<h3 id="polymorphic-types">Polymorphic types</h3>
+<p>Some blocks will have to handle polymorphic types.</p>
+
+<ul>
+  <li>Blocks may have multiple slots; if a slot gets connected the other slots might change color if the are the same type. 
+For example, if we have an IF (condition) (consequence) (alternative) block then when either consequence or alternative is connected the other slot should reflect the same type.</li>
+  <li>Blocks might also change color to reflect their type.</li>
+  <li>Minimal handling of polymorphic types will be included in order to accommodate CodeWorld’s API. Complete integration is seen as a stretch goal (if time allows).</li>
+  <li>User data can be constructed from a set of basic types. Constructors and destructors will allow manipulations of the data.</li>
+</ul>
+
+<h3 id="codeworld-integration">CodeWorld integration</h3>
+<ul>
+  <li>Blocks to reflect CodeWorld functions and data types, such that CodeWorld programs can be built.</li>
+  <li>Most CodeWorld functions are monomorphic, however, simulations require a polymorphic state/world type. We propose that such data types be constructed from existing primitive types using constructors and destructors.</li>
+</ul>
+
+<h3 id="what-might-need-to-be-excluded">What might need to be excluded</h3>
+<ul>
+  <li>Custom algebraic data types. Since blocks are predefined there may not be a way to extract data from a user-defined data type.</li>
+</ul>
+
+<h2 id="timeline">Timeline</h2>
+
+<p>Weekly communication will be made with the mentor to ensure the project is on track.</p>
+
+<p><strong>Before June 12</strong> - Research into current visual block-based programming languages such as Scratch, what good ideas they utilize and what can be carried over to this project. Research into some of the current problems that a functional based visual programming language faces.</p>
+
+<p><strong>June 12th</strong> - <em>Deliverable</em> - Mock up design of the user interface. Overview of what blocks might be supported.</p>
+
+<p><strong>June 13th - June 30th</strong> - Design of the functional block based language. Set up of CodeWorld and Blockly</p>
+
+<p><strong>July 1st - July 30th</strong> - Setup of a basic interface, incorporate Blockly and interface with CodeWorld. Discover and overcome unsuspected challenges</p>
+
+<p><strong>July 31st</strong> - <em>Deliverable</em> - Basic user interface set up. A basic program should be able to built using the user interface.</p>
+
+<p><strong>August 1st - August 15th</strong> - Implement Codeworld functions and types. Complete Blockly code generation.</p>
+
+<p><strong>August 16th</strong> - <em>Deliverable</em> - CodeWorld example programs should be able to be built.</p>
+
+<p><strong>August 16th - September 2nd</strong> - Polish user interface, improve error messages, fix bugs. Some leeway for the unexpected.</p>
+
+<p>I have limited availability from 4 - 7 September due to a conference. It does not seem to interfere with any important dates.</p>
+
+<p>I will communicate with my mentor if there are any other difficulties.</p>
+
+<h2 id="stretch-goals">Stretch Goals</h2>
+
+<p>If time allows and a good solution presents itself the following may be implemented (but is not part of the core project), otherwise they are presented as good ideas for future versions:</p>
+
+<ul>
+  <li>Pattern Matching</li>
+  <li>Support for ADT’s</li>
+  <li>Support for editing list comprehensions, live previews of list comprehensions</li>
+  <li>Full recursion support</li>
+  <li>First class functions</li>
+</ul>
+
+<h2 id="about-me">About me</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td style="text-align: center">Stefan Jacholke</td>
+    </tr>
+    <tr>
+      <td>University</td>
+      <td style="text-align: center">NWU Potchefstroom</td>
+    </tr>
+    <tr>
+      <td>Course</td>
+      <td style="text-align: center">M.Eng Computer</td>
+    </tr>
+    <tr>
+      <td>Degree</td>
+      <td style="text-align: center">B.Eng Computer and Electronic</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td style="text-align: center">stefanjacholke@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Github</td>
+      <td style="text-align: center"><a href="https://github.com/stefan-j">https://github.com/stefan-j</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>I’m a first-year computer engineering graduate student at NWU in South Africa, studying Network Optimization and Planning.</p>
+
+<p>My current interests include Programming Languages, Algorithms, and Data structures.</p>
+
+<p>While I have only recently started developing in Haskell I have used it for:</p>
+
+<ul>
+  <li>Developing my own simple programming language</li>
+  <li>Developed a simple math expression simplifier</li>
+  <li>Am currently developing a mobile coffee purchases mobile application; the backend for the application is written in Haskell (that handles credit card purchases, queries to the POS system, interface between app and
+  database)</li>
+  <li>Using Haskell for algorithmic problems (HackerRank, Codejam)</li>
+  <li>Used <a href="https://github.com/stefan-j/cplex-haskell">FFI binding to interface with CPLEX</a> (commercial linear programming solver)</li>
+  <li>Using it to develop my framework for Metro Ethernet optimization  (Master’s project)</li>
+</ul>
+
+<p>I have experience in Web development, mostly through some of my pregraduate
+courses. In particular, I have:</p>
+
+<ul>
+  <li>Developed a Real Estate web site for advertisements using ASP.NET, MySQL, and ReactJS</li>
+  <li>Developed a File management site for uploading and downloading files (similar to dropbox, though simpler) using PHP, Bootstrap and Jquery and AJAX</li>
+</ul>
+
+<p>Various experience with other technologies (though unrelated to project at hand). I also have a few other projects in different languages.</p>
+
+<p>I have some small open source contributions listed on my Github profile.</p>
+
+<p>More information can be given on request.</p>
+
+<h2 id="sources">Sources</h2>
+<p>This project is based on Chris Smith’s <a href="https://github.com/google/codeworld/issues/85">proposal for a block-based UI for CodeWorld</a></p>
+
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    <span class="pagination-item newer">Newer</span>
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
