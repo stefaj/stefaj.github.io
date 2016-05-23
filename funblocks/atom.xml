@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>FunBlocks</title>
- <link href="http://stefanj.me/funblocks//funblocks/atom.xml" rel="self"/>
- <link href="http://stefanj.me/funblocks//funblocks/"/>
- <updated>2016-05-23T23:28:16+00:00</updated>
- <id>http://stefanj.me/funblocks/</id>
+ <link href="http://stefanj.me/funblocks/funblocks/atom.xml" rel="self"/>
+ <link href="http://stefanj.me/funblocks/funblocks/"/>
+ <updated>2016-05-23T23:32:31+00:00</updated>
+ <id>http://stefanj.me/funblocks</id>
  <author>
    <name>Stefan Jacholke</name>
    <email>stefanjacholke@gmail.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Visual functional block-based programming language for CodeWorld</title>
-   <link href="http://stefanj.me/funblocks//2016/05/23/project-proposal/"/>
+   <link href="http://stefanj.me/funblocks/2016/05/23/project-proposal/"/>
    <updated>2016-05-23T00:00:00+00:00</updated>
-   <id>http://stefanj.me/funblocks//funblocks/2016/05/23/project-proposal</id>
+   <id>http://stefanj.me/funblocks/funblocks/2016/05/23/project-proposal</id>
    <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/coeFzag.png&quot; alt=&quot;blockly&quot; title=&quot;blockly&quot; /&gt;&lt;/p&gt;
