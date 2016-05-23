@@ -6,27 +6,27 @@
 <meta name="description" content="You can automatically link together topics belonging to the same series. This helps users know the context within a particular process.">
 <meta name="keywords" content="content_types,  series, connected articles, tutorials, hello world">
 <title>Series  | Algorithms</title>
-<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/algorithms/css/syntax.css">
 
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
-<link rel="stylesheet" href="/css/modern-business.css">
-<link rel="stylesheet" href="/css/lavish-bootstrap.css">
-<link rel="stylesheet" href="/css/customstyles.css">
-<link rel="stylesheet" href="/css/theme-blue.css">
+<link rel="stylesheet" href="/algorithms/css/modern-business.css">
+<link rel="stylesheet" href="/algorithms/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/algorithms/css/customstyles.css">
+<link rel="stylesheet" href="/algorithms/css/theme-blue.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="/js/jquery.navgoco.min.js"></script>
+<script src="/algorithms/js/jquery.navgoco.min.js"></script>
 
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
-<script src="/js/toc.js"></script>
-<script src="/js/customscripts.js"></script>
+<script src="/algorithms/js/toc.js"></script>
+<script src="/algorithms/js/customscripts.js"></script>
 
-<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="shortcut icon" href="/algorithms/images/favicon.ico">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +35,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="http://stefanj.me/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="http://stefanj.me/algorithms/algorithms/feed.xml">
 
 
 
@@ -96,7 +96,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="fa fa-home fa-lg navbar-brand" href="/">&nbsp;<span class="projectTitle"> Algorithms</span></a>
+            <a class="fa fa-home fa-lg navbar-brand" href="/algorithms/">&nbsp;<span class="projectTitle"> Algorithms</span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -131,12 +131,12 @@ window.location.href = uri;
                         <input type="text" id="search-input" placeholder="search...">
                         <ul id="results-container"></ul>
                     </div>
-                    <script src="/js/jekyll-search.js" type="text/javascript"></script>
+                    <script src="/algorithms/js/jekyll-search.js" type="text/javascript"></script>
                     <script type="text/javascript">
                             SimpleJekyllSearch.init({
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
-                                dataSource: '/search.json',
+                                dataSource: '/algorithms/search.json',
                                 searchResultTemplate: '<li><a href="{url}" title="Series">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
@@ -184,7 +184,7 @@ window.location.href = uri;
             
             
             
-            <li><a href="/arrays/">Arrays</a></li>
+            <li><a href="/algorithms/arrays/">Arrays</a></li>
             
             
             
@@ -199,14 +199,14 @@ window.location.href = uri;
             
             
             
-            <li><a href="/hmm/">Hidden Markov Models</a></li>
+            <li><a href="/algorithms/hmm/">Hidden Markov Models</a></li>
             
             
             
             
             
             
-            <li><a href="/markovchains/">Markov Chains</a></li>
+            <li><a href="/algorithms/markovchains/">Markov Chains</a></li>
             
             
             
@@ -221,7 +221,7 @@ window.location.href = uri;
             
             
             
-            <li><a href="/ncd/">Normalized Compression Distance</a></li>
+            <li><a href="/algorithms/ncd/">Normalized Compression Distance</a></li>
             
             
             
@@ -289,7 +289,7 @@ $('#toc').on('click', 'a', function() {
 
   <h2 id="using-series-for-pages">Using series for pages</h2>
 
-<p>You create a series by looking for all pages within a tag namespace that contain certain frontmatter. Here’s a <a href="/mydoc_seriesdemo1" class="noCrossRef">demo</a>.</p>
+<p>You create a series by looking for all pages within a tag namespace that contain certain frontmatter. Here’s a <a href="/algorithms/mydoc_seriesdemo1" class="noCrossRef">demo</a>.</p>
 
 <h2 id="create-the-series-button">1. Create the series button</h2>
 
@@ -373,11 +373,11 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="changing-the-series-drop-down-color">Changing the series drop-down color</h2>
 
-<p>The Bootstrap menu uses the <code class="highlighter-rouge">primary</code> class for styling. If you change this class in your theme, the Bootstrap menu should automatically change color as well. You can also just use another Bootstrap class in your button code. Instead of <code class="highlighter-rouge">btn-primary</code>, use <code class="highlighter-rouge">btn-info</code> or <code class="highlighter-rouge">btn-warning</code>. See <a href="/mydoc_labels">Labels</a>for more Bootstrap button classes.</p>
+<p>The Bootstrap menu uses the <code class="highlighter-rouge">primary</code> class for styling. If you change this class in your theme, the Bootstrap menu should automatically change color as well. You can also just use another Bootstrap class in your button code. Instead of <code class="highlighter-rouge">btn-primary</code>, use <code class="highlighter-rouge">btn-info</code> or <code class="highlighter-rouge">btn-warning</code>. See <a href="/algorithms/mydoc_labels">Labels</a>for more Bootstrap button classes.</p>
 
 <h2 id="using-a-collection-with-your-series">Using a collection with your series</h2>
 
-<p>Instead of copying and pasting the button includes on each of your series, you could also create a collection and define a layout for the collection that has the include code. For more information on creating collections, see <a href="/mydoc_collections">Collections</a>.</p>
+<p>Instead of copying and pasting the button includes on each of your series, you could also create a collection and define a layout for the collection that has the include code. For more information on creating collections, see <a href="/algorithms/mydoc_collections">Collections</a>.</p>
 
 
 <div class="tags">
@@ -386,7 +386,7 @@ $('#toc').on('click', 'a', function() {
     
     
     
-    <a href="/tag_content_types" class="btn btn-default navbar-btn cursorNorm" role="button">content_types</a>
+    <a href="/algorithms/tag_content_types" class="btn btn-default navbar-btn cursorNorm" role="button">content_types</a>
     
     
     
@@ -403,7 +403,7 @@ $('#toc').on('click', 'a', function() {
                 <div class="col-lg-12 footer">
                &copy;2016 Stefan Jacholke. All rights reserved. <br />
 <p>Page last updated:</span> March 20, 2016<br/> Site last generated: May 23, 2016 <br />
-<p><img src="/images/company_logo.png" alt="Company logo"/></p>
+<p><img src="/algorithms/images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
 </footer>
