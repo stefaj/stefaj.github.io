@@ -4,7 +4,7 @@
  <title>FunBlocks</title>
  <link href="http://stefanj.me/funblocks/funblocks/atom.xml" rel="self"/>
  <link href="http://stefanj.me/funblocks/funblocks/"/>
- <updated>2016-05-24T06:37:32+00:00</updated>
+ <updated>2016-05-24T06:39:53+00:00</updated>
  <id>http://stefanj.me/funblocks</id>
  <author>
    <name>Stefan Jacholke</name>
@@ -34,11 +34,13 @@ project.&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Project Proposal - Visual functional block-based programming language for CodeWorld</title>
+   <title>Project Proposal</title>
    <link href="http://stefanj.me/funblocks/2016/05/23/project-proposal/"/>
    <updated>2016-05-23T00:00:00+00:00</updated>
    <id>http://stefanj.me/funblocks/funblocks/2016/05/23/project-proposal</id>
-   <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+   <content type="html">&lt;h1 id=&quot;visual-functional-block-based-programming-language-for-codeworld&quot;&gt;Visual functional block-based programming language for CodeWorld&lt;/h1&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/coeFzag.png&quot; alt=&quot;blockly&quot; title=&quot;blockly&quot; /&gt;&lt;/p&gt;
 
