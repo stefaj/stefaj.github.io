@@ -4,7 +4,7 @@
  <title>FunBlocks</title>
  <link href="http://stefanj.me/funblocks/funblocks/atom.xml" rel="self"/>
  <link href="http://stefanj.me/funblocks/funblocks/"/>
- <updated>2016-05-24T06:46:50+00:00</updated>
+ <updated>2016-05-24T06:49:25+00:00</updated>
  <id>http://stefanj.me/funblocks</id>
  <author>
    <name>Stefan Jacholke</name>
@@ -17,17 +17,15 @@
    <link href="http://stefanj.me/funblocks/2016/05/24/hello-world/"/>
    <updated>2016-05-24T00:00:00+00:00</updated>
    <id>http://stefanj.me/funblocks/funblocks/2016/05/24/hello-world</id>
-   <content type="html">&lt;p&gt;So, first off, I got accepted into Haskell Summer of Code 2016. The project is
+   <content type="html">&lt;p&gt;So, first off, I got accepted into &lt;a href=&quot;https://summer.haskell.org/&quot;&gt;Haskell Summer of Code 2016&lt;/a&gt;. The project is
 to develop a visual functional block based langauge for &lt;a href=&quot;https://code.world/&quot;&gt;CodeWorld&lt;/a&gt;, under &lt;a href=&quot;https://cdsmith.wordpress.com/&quot;&gt;Chris Smith&lt;/a&gt;. 
 The project is in the same vein as Scratch, although it will be based on functional principles which will be a subset of Haskell. 
 The project idea is described more fully in the &lt;a href=&quot;/2016/05/23/project-proposal/&quot;&gt;Project Proposal&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Some of the other goals of this site include me tracking progress of the project
-and interacting with the community.&lt;/p&gt;
+&lt;p&gt;Some of the other goals of this site include me tracking progress of the project and interacting with the community.&lt;/p&gt;
 
 &lt;p&gt;I’m a graduate student studying Computer and Electronic Engineering and aside from Summer of Code reasons for doing the project, I’m also interested in
-programming languages and hope to learn a good deal through doing such a
-project.&lt;/p&gt;
+programming languages (and obviously Haskell) and hope to learn a good deal through doing such a project.&lt;/p&gt;
 
 &lt;p&gt;P.S. I’m also explicitly giving permission to be included on Planet Haskell&lt;/p&gt;
 </content>
