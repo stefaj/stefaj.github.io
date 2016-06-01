@@ -4,13 +4,199 @@
  <title>FunBlocks</title>
  <link href="http://stefanj.me/funblocks/funblocks/atom.xml" rel="self"/>
  <link href="http://stefanj.me/funblocks/funblocks/"/>
- <updated>2016-05-28T22:11:12+00:00</updated>
+ <updated>2016-06-01T21:30:02+00:00</updated>
  <id>http://stefanj.me/funblocks</id>
  <author>
    <name>Stefan Jacholke</name>
    <email>stefanjacholke@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Hello Blockly</title>
+   <link href="http://stefanj.me/funblocks/2016/05/28/hello-blockly/"/>
+   <updated>2016-05-28T00:00:00+00:00</updated>
+   <id>http://stefanj.me/funblocks/funblocks/2016/05/28/hello-blockly</id>
+   <content type="html">&lt;h2 id=&quot;blockly&quot;&gt;Blockly&lt;/h2&gt;
+&lt;p&gt;Officially, HSOC projects start from the 13th June. This provides time 
+to do some research. Today I decided to take a look at Blockly.&lt;/p&gt;
+
+&lt;p&gt;Setting up Blockly is rather straightforward. I cloned Blockly as a 
+git submodule.
+I created a simple HTML page with a Blockly canvas. Setting up
+Blockly involves &lt;a href=&quot;https://developers.google.com/blockly/guides/configure-blockly/web/fixed-size&quot;&gt;creating a static sized div and loading the
+javascript&lt;/a&gt;.
+Later I will set it up as a resizable workspace.
+Blockly comes with a javascript CodeGen, later I will have to 
+implement a
+Haskell/CodeWorld CodeGen for the project.&lt;/p&gt;
+
+&lt;h2 id=&quot;codeworld&quot;&gt;CodeWorld&lt;/h2&gt;
+&lt;p&gt;Following the advice on the
+&lt;a href=&quot;https://github.com/google/codeworld/blob/master/README.md&quot;&gt;README&lt;/a&gt; I 
+created a new codeworld Linux user account and
+went on to set up CodeWorld.
+The current build script for CodeWorld covers the zypper, apt-get and yum
+package managers. 
+Running Arch I’ve got pacman. I already had most the required packages 
+(git, zlib, ncurses, gcc, gmp, patch, autoconf, automake, openssl).&lt;/p&gt;
+
+&lt;p&gt;What I was missing was&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pacman -S npm nodejs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I also had GHC 7.10.3 and cabal already installed.&lt;/p&gt;
+
+&lt;p&gt;Installing GHCJS:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/ghcjs/ghcjs.git
+cabal install ./ghcjs
+ghcjs-boot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and also ghcjs-dom&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cabal install ghcjs-dom
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I don’t have the cabal bin in my PATH so I needed:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=/home/codeworld/.cabal/bin:$PATH
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;before running the standard CodeWorld build script. After running 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;build.sh&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; started up the web server. 
+Everything ran fine, minus saving projects, which I did not set up.&lt;/p&gt;
+
+&lt;h2 id=&quot;ghcjs&quot;&gt;GHCJS&lt;/h2&gt;
+&lt;p&gt;I wanted to play around with GHCJS as well, having never used it 
+before.
+Documentation was rather scarce but I managed to put together a simple 
+hello world application; with a compiled js file of about 43KLOC.&lt;/p&gt;
+
+&lt;p&gt;A lot of the sample programs found were using an old version of 
+GHCJS-DOM. I will return to GHCJS when I start programming on the project.&lt;/p&gt;
+
+&lt;h2 id=&quot;testing-testing&quot;&gt;Testing, testing&lt;/h2&gt;
+
+&lt;p&gt;My goal today was to quickly set a simple page containing Blockly and 
+a CodeWorld application as a simple test.&lt;/p&gt;
+
+&lt;p&gt;I created a simple HTML file with Bootstrap for minimal styling, added 
+Blockly and an iframe for running a standard CodeWorld application.&lt;/p&gt;
+
+&lt;p&gt;Setting up the example Snap site comprises of:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module Main where
+
+import Control.Applicative
+import Snap.Core
+import Snap.Http.Server
+import Snap.Util.FileServe
+import Snap.Util.FileUploads
+import System.Directory
+import System.FilePath
+
+main :: IO ()
+main = quickHttpServe site
+
+site :: Snap ()
+site =
+        ifTop (writeBS &quot;hello world&quot;) &amp;lt;|&amp;gt;
+        route [ (&quot;foo&quot;, writeBS &quot;bar&quot;)
+               ,(&quot;echo/:echoparam&quot;, echoHandler)
+               ] &amp;lt;|&amp;gt;
+        serveDirectory &quot;web&quot;
+
+
+echoHandler :: Snap ()
+echoHandler = do
+    param &amp;lt;- getParam &quot;echoparam&quot;
+    maybe (writeBS &quot;must specify echoparam in URL&quot;)
+          writeBS param
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;With the server looking for a page to serve from “web” if it does not 
+match any of the routes.&lt;/p&gt;
+
+&lt;p&gt;I originally wanted to send a code sample from the FunBlocks page to 
+the locally hosted CodeWorld server with a XMLHttpRequest, however, this I could not do 
+as the FunBlocks site and CodeWorld server were on different ports, thus I ended up receiving&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;XMLHttpRequest cannot load. No &#39;Access-Control-Allow-Origin&#39; header is 
+present on the requested resource.
+Origin is therefore not allowed access
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;as an error.&lt;/p&gt;
+
+&lt;p&gt;Not wanting to mess around with headers I decided to just copy over
+the codeworld-server files and serve the same resources, with the new 
+index page as an addition.&lt;/p&gt;
+
+&lt;p&gt;I actually only wanted the compile and run features for this simple 
+test. 
+So currently the server is exactly the same as the codeworld-server 
+with a modified codeworld.js and custom index.
+This makes things easy as FunBlocks can be hosted together with 
+CodeWorld later, just on a different page.
+I would enjoy having a solid implementation for the language.&lt;/p&gt;
+
+&lt;p&gt;Any thoughts on a good approach to take with this are welcome.&lt;/p&gt;
+
+&lt;h2 id=&quot;type-checking-and-an-intermediate-form&quot;&gt;Type checking and an intermediate form.&lt;/h2&gt;
+&lt;p&gt;The flow of the language will be something similar to:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Blocks -&amp;gt; Intermediate code representation -&amp;gt; CodeGen&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The intermediate code representation should cover a basic set of 
+features of
+Haskell, enough to be able to generate valid CodeWorld applications. 
+User friendliness is also a concern, since the project is 
+educationally focussed.&lt;/p&gt;
+
+&lt;p&gt;Blocks should snap properly and maybe display suitable error
+messages otherwise. For this to occur however, some form of type 
+checking will have to be implemented.&lt;/p&gt;
+
+&lt;p&gt;I gathered some resources which I will look at later:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://web.cecs.pdx.edu/~mpj/thih/&quot;&gt;Typing Haskell in Haskell&lt;/a&gt; - 
+Haskell type checking&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hackage.haskell.org/package/hint-0.5.2&quot;&gt;Hint&lt;/a&gt; - Type-check 
+and evaluate strings with Haskell expressions and even coerce them 
+into values.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cs.brown.edu/~sk/Publications/Books/ProgLangs/2007-04-26/&quot;&gt;Programming 
+languages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Programming languages, covers Racket, has got a chapter on type 
+checking&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/&quot;&gt;The Implementation of Functional Programming 
+Languages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Contains a chapter on Polymorphic type checking&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hackage.haskell.org/package/baskell&quot;&gt;Baskell&lt;/a&gt; - A small 
+functional language featuring type inference.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The easiest might be to rely on Hint to type check Haskell expressions 
+and do some backtracing, this avoids having to implement type inference. 
+Though if time allows I might be tempted to do a proper implementation.&lt;/p&gt;
+
+&lt;p&gt;Most CodeWorld functions are monomorphic and have concrete types, with 
+some exceptions (simulations). So some part of CodeWorld can be implemented 
+without worrying too much about type checking, however, I would enjoy having a 
+solid implementation for the language.&lt;/p&gt;
+
+&lt;p&gt;Any thoughts on a good approach to take with this are welcome.&lt;/p&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Hello World</title>

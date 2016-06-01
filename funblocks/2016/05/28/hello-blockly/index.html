@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Hello Blockly &middot; FunBlocks
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/funblocks/public/css/poole.css">
+  <link rel="stylesheet" href="/funblocks/public/css/syntax.css">
+  <link rel="stylesheet" href="/funblocks/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/funblocks/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/funblocks/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Visual functional block-based programming language for CodeWorld</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/funblocks/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+
+<!--    <a class="sidebar-nav-item" href="https://github.com/stefan-j/FunBlocks/archive/v1.0.0.zip">Download</a> -->
+    <a class="sidebar-nav-item" href="https://github.com/stefan-j/FunBlocks">GitHub project</a>
+    <!-- <span class="sidebar-nav-item">Currently v1.0.0</span> -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2016. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/funblocks/" title="Home">FunBlocks</a>
+            <small>A functional block-based language for CodeWorld</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Hello Blockly</h1>
+  <span class="post-date">28 May 2016</span>
+  <h2 id="blockly">Blockly</h2>
+<p>Officially, HSOC projects start from the 13th June. This provides time 
+to do some research. Today I decided to take a look at Blockly.</p>
+
+<p>Setting up Blockly is rather straightforward. I cloned Blockly as a 
+git submodule.
+I created a simple HTML page with a Blockly canvas. Setting up
+Blockly involves <a href="https://developers.google.com/blockly/guides/configure-blockly/web/fixed-size">creating a static sized div and loading the
+javascript</a>.
+Later I will set it up as a resizable workspace.
+Blockly comes with a javascript CodeGen, later I will have to 
+implement a
+Haskell/CodeWorld CodeGen for the project.</p>
+
+<h2 id="codeworld">CodeWorld</h2>
+<p>Following the advice on the
+<a href="https://github.com/google/codeworld/blob/master/README.md">README</a> I 
+created a new codeworld Linux user account and
+went on to set up CodeWorld.
+The current build script for CodeWorld covers the zypper, apt-get and yum
+package managers. 
+Running Arch I’ve got pacman. I already had most the required packages 
+(git, zlib, ncurses, gcc, gmp, patch, autoconf, automake, openssl).</p>
+
+<p>What I was missing was</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pacman -S npm nodejs
+</code></pre>
+</div>
+
+<p>I also had GHC 7.10.3 and cabal already installed.</p>
+
+<p>Installing GHCJS:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/ghcjs/ghcjs.git
+cabal install ./ghcjs
+ghcjs-boot
+</code></pre>
+</div>
+
+<p>and also ghcjs-dom</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cabal install ghcjs-dom
+</code></pre>
+</div>
+
+<p>I don’t have the cabal bin in my PATH so I needed:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>export PATH=/home/codeworld/.cabal/bin:$PATH
+</code></pre>
+</div>
+<p>before running the standard CodeWorld build script. After running 
+<code class="highlighter-rouge">build.sh</code>, <code class="highlighter-rouge">run.sh</code> started up the web server. 
+Everything ran fine, minus saving projects, which I did not set up.</p>
+
+<h2 id="ghcjs">GHCJS</h2>
+<p>I wanted to play around with GHCJS as well, having never used it 
+before.
+Documentation was rather scarce but I managed to put together a simple 
+hello world application; with a compiled js file of about 43KLOC.</p>
+
+<p>A lot of the sample programs found were using an old version of 
+GHCJS-DOM. I will return to GHCJS when I start programming on the project.</p>
+
+<h2 id="testing-testing">Testing, testing</h2>
+
+<p>My goal today was to quickly set a simple page containing Blockly and 
+a CodeWorld application as a simple test.</p>
+
+<p>I created a simple HTML file with Bootstrap for minimal styling, added 
+Blockly and an iframe for running a standard CodeWorld application.</p>
+
+<p>Setting up the example Snap site comprises of:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>module Main where
+
+import Control.Applicative
+import Snap.Core
+import Snap.Http.Server
+import Snap.Util.FileServe
+import Snap.Util.FileUploads
+import System.Directory
+import System.FilePath
+
+main :: IO ()
+main = quickHttpServe site
+
+site :: Snap ()
+site =
+        ifTop (writeBS "hello world") &lt;|&gt;
+        route [ ("foo", writeBS "bar")
+               ,("echo/:echoparam", echoHandler)
+               ] &lt;|&gt;
+        serveDirectory "web"
+
+
+echoHandler :: Snap ()
+echoHandler = do
+    param &lt;- getParam "echoparam"
+    maybe (writeBS "must specify echoparam in URL")
+          writeBS param
+</code></pre>
+</div>
+
+<p>With the server looking for a page to serve from “web” if it does not 
+match any of the routes.</p>
+
+<p>I originally wanted to send a code sample from the FunBlocks page to 
+the locally hosted CodeWorld server with a XMLHttpRequest, however, this I could not do 
+as the FunBlocks site and CodeWorld server were on different ports, thus I ended up receiving</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>XMLHttpRequest cannot load. No 'Access-Control-Allow-Origin' header is 
+present on the requested resource.
+Origin is therefore not allowed access
+</code></pre>
+</div>
+
+<p>as an error.</p>
+
+<p>Not wanting to mess around with headers I decided to just copy over
+the codeworld-server files and serve the same resources, with the new 
+index page as an addition.</p>
+
+<p>I actually only wanted the compile and run features for this simple 
+test. 
+So currently the server is exactly the same as the codeworld-server 
+with a modified codeworld.js and custom index.
+This makes things easy as FunBlocks can be hosted together with 
+CodeWorld later, just on a different page.
+I would enjoy having a solid implementation for the language.</p>
+
+<p>Any thoughts on a good approach to take with this are welcome.</p>
+
+<h2 id="type-checking-and-an-intermediate-form">Type checking and an intermediate form.</h2>
+<p>The flow of the language will be something similar to:</p>
+
+<p><em>Blocks -&gt; Intermediate code representation -&gt; CodeGen</em></p>
+
+<p>The intermediate code representation should cover a basic set of 
+features of
+Haskell, enough to be able to generate valid CodeWorld applications. 
+User friendliness is also a concern, since the project is 
+educationally focussed.</p>
+
+<p>Blocks should snap properly and maybe display suitable error
+messages otherwise. For this to occur however, some form of type 
+checking will have to be implemented.</p>
+
+<p>I gathered some resources which I will look at later:</p>
+
+<ul>
+  <li><a href="http://web.cecs.pdx.edu/~mpj/thih/">Typing Haskell in Haskell</a> - 
+Haskell type checking</li>
+  <li><a href="http://hackage.haskell.org/package/hint-0.5.2">Hint</a> - Type-check 
+and evaluate strings with Haskell expressions and even coerce them 
+into values.</li>
+  <li><a href="http://cs.brown.edu/~sk/Publications/Books/ProgLangs/2007-04-26/">Programming 
+languages</a></li>
+  <li>Programming languages, covers Racket, has got a chapter on type 
+checking</li>
+  <li><a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/">The Implementation of Functional Programming 
+Languages</a></li>
+  <li>Contains a chapter on Polymorphic type checking</li>
+  <li><a href="http://hackage.haskell.org/package/baskell">Baskell</a> - A small 
+functional language featuring type inference.</li>
+</ul>
+
+<p>The easiest might be to rely on Hint to type check Haskell expressions 
+and do some backtracing, this avoids having to implement type inference. 
+Though if time allows I might be tempted to do a proper implementation.</p>
+
+<p>Most CodeWorld functions are monomorphic and have concrete types, with 
+some exceptions (simulations). So some part of CodeWorld can be implemented 
+without worrying too much about type checking, however, I would enjoy having a 
+solid implementation for the language.</p>
+
+<p>Any thoughts on a good approach to take with this are welcome.</p>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/funblocks/2016/05/24/hello-world/">
+            Hello World
+            <small>24 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/funblocks/2016/05/23/project-proposal/">
+            Project Proposal
+            <small>23 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="comments">
+
+  <div id="disqus_thread"></div>
+  <script>
+ 
+  var disqus_config = function () {
+    this.page.url = page.url; 
+    this.page.identifier = page.title; 
+  };
+
+  (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = '//funblocks.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a
+  href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by
+  Disqus.</a></noscript>
+
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
