@@ -4,7 +4,7 @@
  <title>FunBlocks</title>
  <link href="http://stefanj.me/funblocks/funblocks/atom.xml" rel="self"/>
  <link href="http://stefanj.me/funblocks/funblocks/"/>
- <updated>2016-06-01T21:30:02+00:00</updated>
+ <updated>2016-06-01T21:33:02+00:00</updated>
  <id>http://stefanj.me/funblocks</id>
  <author>
    <name>Stefan Jacholke</name>
@@ -168,20 +168,13 @@ checking will have to be implemented.&lt;/p&gt;
 &lt;p&gt;I gathered some resources which I will look at later:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://web.cecs.pdx.edu/~mpj/thih/&quot;&gt;Typing Haskell in Haskell&lt;/a&gt; - 
-Haskell type checking&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://hackage.haskell.org/package/hint-0.5.2&quot;&gt;Hint&lt;/a&gt; - Type-check 
-and evaluate strings with Haskell expressions and even coerce them 
-into values.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://cs.brown.edu/~sk/Publications/Books/ProgLangs/2007-04-26/&quot;&gt;Programming 
-languages&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Programming languages, covers Racket, has got a chapter on type 
+  &lt;li&gt;&lt;a href=&quot;http://web.cecs.pdx.edu/~mpj/thih/&quot;&gt;Typing Haskell in Haskell&lt;/a&gt; - Haskell type checking&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hackage.haskell.org/package/hint-0.5.2&quot;&gt;Hint&lt;/a&gt; - Type-check and evaluate strings with Haskell expressions and even coerce them into values.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cs.brown.edu/~sk/Publications/Books/ProgLangs/2007-04-26/&quot;&gt;Programming languages&lt;/a&gt; - covers Racket, contains a chapter on type 
 checking&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://research.microsoft.com/en-us/um/people/simonpj/papers/slpj-book-1987/&quot;&gt;The Implementation of Functional Programming 
-Languages&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Contains a chapter on Polymorphic type checking&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://hackage.haskell.org/package/baskell&quot;&gt;Baskell&lt;/a&gt; - A small 
-functional language featuring type inference.&lt;/li&gt;
+Languages&lt;/a&gt; - Contains a chapter on Polymorphic type checking&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hackage.haskell.org/package/baskell&quot;&gt;Baskell&lt;/a&gt; - A small functional language featuring type inference.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The easiest might be to rely on Hint to type check Haskell expressions 
