@@ -46,7 +46,7 @@
       </node>
       <node id="5" label="Home">
         <attvalues>
-          <attvalue for="url" value="http://stefan-j.me"></attvalue>
+          <attvalue for="url" value="http://stefanj.me"></attvalue>
         </attvalues>
         <viz:size value="10.0"></viz:size>
         <viz:position x="-69.98395" y="340.43597"></viz:position>
