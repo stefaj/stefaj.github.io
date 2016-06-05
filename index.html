@@ -71,6 +71,11 @@
       alert(e.data.node['URL']);
       alert(e.data.node['url']);
       alert(e.data.node.url);
+      alert(e.data.node.attributes);
+      e.data.node.attributes.forEach(function(b)
+          {
+            alert(b);
+          });
       });
       
     }
