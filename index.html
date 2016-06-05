@@ -66,11 +66,9 @@
       });
       s.refresh();
 
-      s.bind('clickNode', function(e) {
-        
-        
-      window.location = e.data.node.attributes['url'];
-      
+      s.bind('clickNode', function(e) { 
+        window.location = e.data.node.attributes['url'];
+      }
     }
   );
 </script>
