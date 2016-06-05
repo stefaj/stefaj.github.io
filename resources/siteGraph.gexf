@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3" version="1.3" xmlns:viz="http://www.gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.3 http://www.gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2016-06-05">
+    <creator>Gephi 0.9</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="url" title="URL" type="string"></attribute>
+    </attributes>
+    <nodes>
+      <node id="0" label="Github">
+        <attvalues>
+          <attvalue for="url" value="https://github.com/stefan-j"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-461.98816" y="-47.219078"></viz:position>
+      </node>
+      <node id="1" label="LinkedIn">
+        <attvalues>
+          <attvalue for="url" value="https://www.linkedin.com/in/1gn1t0r"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="324.456" y="487.8689"></viz:position>
+      </node>
+      <node id="2" label="FunBlocks">
+        <attvalues>
+          <attvalue for="url" value="http://stefanj.me/funblocks/"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-126.94412" y="60.497253"></viz:position>
+      </node>
+      <node id="3" label="Algorithms">
+        <attvalues>
+          <attvalue for="url" value="http://stefanj.me/algorithms/"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-230.50407" y="455.72757"></viz:position>
+      </node>
+      <node id="4" label="CodePlex">
+        <attvalues>
+          <attvalue for="url" value="http://www.codeplex.com/site/users/view/1gn1t0r"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="79.5907" y="-257.59033"></viz:position>
+      </node>
+      <node id="5" label="Home">
+        <attvalues>
+          <attvalue for="url" value="http://stefan-j.me"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-69.98395" y="340.43597"></viz:position>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="1" source="5" target="0"></edge>
+      <edge id="2" source="5" target="1"></edge>
+      <edge id="3" source="5" target="2"></edge>
+      <edge id="4" source="5" target="3"></edge>
+      <edge id="5" source="5" target="4"></edge>
+      <edge id="6" source="0" target="2"></edge>
+    </edges>
+  </graph>
+</gexf>
