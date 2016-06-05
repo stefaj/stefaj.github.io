@@ -21,7 +21,7 @@
           <attvalue for="url" value="https://www.linkedin.com/in/1gn1t0r"></attvalue>
         </attvalues>
         <viz:size value="10.0"></viz:size>
-        <viz:position x="324.456" y="487.8689"></viz:position>
+        <viz:position x="113.99532" y="-102.87241"></viz:position>
       </node>
       <node id="2" label="FunBlocks">
         <attvalues>
@@ -42,7 +42,7 @@
           <attvalue for="url" value="http://www.codeplex.com/site/users/view/1gn1t0r"></attvalue>
         </attvalues>
         <viz:size value="10.0"></viz:size>
-        <viz:position x="79.5907" y="-257.59033"></viz:position>
+        <viz:position x="243.60487" y="457.97592"></viz:position>
       </node>
       <node id="5" label="Home">
         <attvalues>
