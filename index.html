@@ -9,7 +9,7 @@
 
 <style>
 #sigma-container{
-  width: 500px;
+  width: 768;
   height: 500px;
   margin: auto;
 };
@@ -27,7 +27,7 @@
   </div>
 </nav>
 
-</br> </br>
+</br> </br> </br> </br> </br>
 
 <div class="container">
   <div class="row">
@@ -55,6 +55,11 @@
     return neighbors;
   });
 
+  settings:
+  {
+    defaultNodeColor: '#ec5148'
+  }
+
   sigma.parsers.gexf(
     '/resources/siteGraph.gexf',
     {
@@ -64,10 +69,10 @@
       // We first need to save the original colors of our
       // nodes and edges, like this:
       s.graph.nodes().forEach(function(n) {
-        n.originalColor = n.color;
+        n.originalColor = '#ec5148';  // n.color;
       });
       s.graph.edges().forEach(function(e) {
-        e.originalColor = e.color;
+        e.originalColor = '#ec5148';
       });
 
       // When a node is clicked, we check for each node
@@ -79,6 +84,7 @@
       s.bind('clickNode', function(e) {
         var nodeId = e.data.node.id,
             toKeep = s.graph.neighbors(nodeId);
+        alert(e.data.node);
         toKeep[nodeId] = e.data.node;
 
         s.graph.nodes().forEach(function(n) {
