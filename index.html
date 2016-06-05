@@ -64,13 +64,12 @@
         e.originalColor = '#ec5148';
         e.color = '#ec5148';
       });
+      s.refresh();
 
       s.bind('clickNode', function(e) {
-        var nodeId = e.data.node.id,
-            toKeep = s.graph.neighbors(nodeId);
+      var nodeId = e.data.node.id,
         
       alert(e.data.node);
-        s.refresh();
       });
       
     }
