@@ -10,7 +10,7 @@
 <style>
 #sigma-container{
   width: 100%;
-  height: 800px;
+  height: 700px;
   margin: auto;
 };
 </style>
@@ -42,8 +42,9 @@
   
   settings:
   {
+    labelThreshold: 0;
     defaultNodeColor: '#ec5148';
-    labelThreshold: 0
+    drawLabels: true;
   }
 
   sigma.parsers.gexf(
@@ -63,6 +64,8 @@
         e.color = '#ec5148';
       });
       s.refresh();
+
+      s.drawingProperties({ labelThreshold: 0 });
 
       s.bind('clickNode', function(e) { 
         window.location = e.data.node.attributes['url'];
