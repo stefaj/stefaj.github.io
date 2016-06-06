@@ -10,7 +10,7 @@
 <style>
 #sigma-container{
   width: 100%;
-  height: 700px;
+/*  height: 700px; */
   margin: auto;
 };
 </style>
@@ -65,7 +65,7 @@
       });
       s.refresh();
 
-      s.drawingProperties({ labelThreshold: 0 });
+      s.drawingProperties :{ labelThreshold: 0 };
 
       s.bind('clickNode', function(e) { 
         window.location = e.data.node.attributes['url'];
