@@ -4,7 +4,7 @@
  <title>FunBlocks</title>
  <link href="http://stefanj.me/funblocks/funblocks/atom.xml" rel="self"/>
  <link href="http://stefanj.me/funblocks/funblocks/"/>
- <updated>2016-06-02T21:48:16+00:00</updated>
+ <updated>2016-06-30T14:44:16+02:00</updated>
  <id>http://stefanj.me/funblocks</id>
  <author>
    <name>Stefan Jacholke</name>
@@ -13,9 +13,277 @@
 
  
  <entry>
+   <title>Fun Blocks Prototype</title>
+   <link href="http://stefanj.me/funblocks/2016/06/30/funblocks-prototype/"/>
+   <updated>2016-06-30T00:00:00+02:00</updated>
+   <id>http://stefanj.me/funblocks/funblocks/2016/06/30/funblocks-prototype</id>
+   <content type="html">&lt;p&gt;After looking up the constituent technologies which will be used for the
+project, work on the initial prototype began.
+For the initial version, we want a simple user interface with which simple
+CodeWorld applications can be built.
+Thus we want a version where a user can:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Drag and drop blocks from the toolbox&lt;/li&gt;
+  &lt;li&gt;Provide simple error feedback&lt;/li&gt;
+  &lt;li&gt;Generate code for a valid CodeWorld application&lt;/li&gt;
+  &lt;li&gt;Run the generated CodeWorld applications&lt;/li&gt;
+  &lt;li&gt;Saving and loading&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some more advanced features which are omitted for this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Support for functions&lt;/li&gt;
+  &lt;li&gt;Support for lists&lt;/li&gt;
+  &lt;li&gt;Advanced CodeWorld applications (animations, events)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Simply put, we want a visual block-based interface which can be used to build
+CodeWorld applications.&lt;/p&gt;
+
+&lt;p&gt;This project is educationally based. We want to introduce programming to younger
+students and make it easy for them to understand the concepts behind it. For more
+advanced projects students may use the &lt;a href=&quot;https://code.world/&quot;&gt;regular CodeWorld text
+UI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The initial prototype can be found at
+&lt;a href=&quot;https://code.world/funblocks&quot;&gt;code.world/funblocks&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;blockly&quot;&gt;Blockly&lt;/h2&gt;
+&lt;p&gt;This project relies heavily on &lt;a href=&quot;https://developers.google.com/blockly/&quot;&gt;Blockly&lt;/a&gt; for the user interface.
+Blockly provides an editor where blocks can be dragged and dropped on a canvas.
+These blocks can then be interlocked with one another through a snapping behavior.&lt;/p&gt;
+
+&lt;p&gt;Blockly provides many features that make it easy to adapt to a new language. It
+even incorporates simple type checking, luckily, however, there is a project that
+improves Blockly’s type checking.&lt;/p&gt;
+
+&lt;p&gt;For the user-interface, the choice was made to keep the interface clean and
+simple. 
+The idea is to have a simple toolbar on the left-side with
+blocks that can be dragged onto the canvas on the right.&lt;/p&gt;
+
+&lt;p&gt;Since the project uses
+Blockly, blocks can be snapped into each other. A block has a single output and may have 
+multiple inputs, each having a type.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://stefanj.me/funblocks/assets/translateBlock.png&quot; alt=&quot;Translate Block&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the image above we can see a &lt;code class=&quot;highlighter-rouge&quot;&gt;Translated&lt;/code&gt; block, taking a picture and two
+numbers, and outputs another picture that is translated according to the given x
+and y values.&lt;/p&gt;
+
+&lt;p&gt;Each block may have zero or more inputs
+and one output type. All blocks are typed, and the functions in CodeWorld work on
+immutable data structures. A function may take a color as an input to produce
+another modified color. This works well with a visual block interface and we
+can expressively see how the program flows.&lt;/p&gt;
+
+&lt;p&gt;Blockly provides a lot of features out of the box, though sometimes changes are
+necessary specifically for this project.&lt;/p&gt;
+
+&lt;p&gt;The largest has been to use Anthony’s, which provides some useful typing and
+polymorphic features though it also diverges from the main Blockly branch and is
+almost 300 commits behind.&lt;/p&gt;
+
+&lt;p&gt;Other changes have been required as well, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;implementing the let blocks&lt;/li&gt;
+  &lt;li&gt;changing default methods of validation for numbers and function names&lt;/li&gt;
+  &lt;li&gt;adding error highlighting&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;and other small changes and additions. Thus we maintain a &lt;a href=&quot;https://github.com/stefan-j/blockly&quot;&gt;separate fork of Blockly&lt;/a&gt; for this
+project.&lt;/p&gt;
+
+&lt;h2 id=&quot;codegen&quot;&gt;CodeGen&lt;/h2&gt;
+&lt;p&gt;When we build the program below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://stefanj.me/funblocks/assets/drawingProgram.png&quot; alt=&quot;Drawing of &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we obtain the output code of:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;main = drawingOf(rotated(colored(solidRectangle(7,5), white),(60 + 70) * 0.9) &amp;amp; solidCircle(4))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Which looks rather ugly, but code formatting will be addressed at a later stage.&lt;/p&gt;
+
+&lt;p&gt;Currently, the regular Blockly code generation paradigm is followed, where a code generation function
+is given for each block, that converts the block into code.
+For a single block, we convert all input blocks to code, which are then combined
+into a single block of code. This process is repeated for all top-level blocks.&lt;/p&gt;
+
+&lt;p&gt;For each block, a generation function is assigned, which looks something like
+this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;blockSector :: GeneratorFunction
+blockSector block = do
+    startangle &amp;lt;- valueToCode block &quot;STARTANGLE&quot; CNone
+    endangle &amp;lt;- valueToCode block &quot;ENDANGLE&quot; CNone
+    radius &amp;lt;- valueToCode block &quot;RADIUS&quot; CNone
+    return $ none $ &quot;sector(&quot; ++ startangle ++ &quot;,&quot; ++ endangle ++ &quot;,&quot; ++ radius ++ &quot;)&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This approach has some disadvantages, such being:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Difficult to ensure code is consistent and that all types match.&lt;/li&gt;
+  &lt;li&gt;Difficult to find errors when they occur&lt;/li&gt;
+  &lt;li&gt;Having to define a block for every CodeWorld function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first problem is alleviated with a different version of &lt;a href=&quot;https://github.com/UCSD-PL/typed-blockly&quot;&gt;Blockly that
+supports polymorphic types&lt;/a&gt;. I’m using
+an &lt;a href=&quot;https://github.com/awmorp/blockly&quot;&gt;updated version by Anthony&lt;/a&gt; that also support automatic coloring of Blocks.
+Hence the strategy currently taken is to prevent errors through the block based
+editor.&lt;/p&gt;
+
+&lt;p&gt;This version of Blockly fits this project great. Since we don’t have
+side-effects the &lt;em&gt;type&lt;/em&gt; of the &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt;-block should be of the same as the &lt;code class=&quot;highlighter-rouge&quot;&gt;then&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;else&lt;/code&gt;
+expressions. In order to have a single &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; block, it must be polymorphic, and this
+is provided by the alternate Blockly.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://stefanj.me/funblocks/assets/if1.png&quot; alt=&quot;If Text&quot; /&gt;
+Above we can see the if block matching the Text type; below we can see the if
+block matching the Picture type.
+&lt;img src=&quot;http://stefanj.me/funblocks/assets/if2.png&quot; alt=&quot;If Picture&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Regardless, the generated code is then displayed and syntax highlighted using
+&lt;a href=&quot;https://codemirror.net/&quot;&gt;CodeMirror&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The generated code is sent to the CodeWorld server, which compiles the code
+into JavaScript. The compiled code is then run in the browser and displayed on
+an HTML canvas.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://stefanj.me/funblocks/assets/previewproto.png&quot; alt=&quot;Preview&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;error-handling&quot;&gt;Error handling&lt;/h2&gt;
+&lt;p&gt;First priority is to prevent a large class of errors from ever occurring.
+This is done by only allowing certain connections between blocks, validating
+input, providing default blocks and so on. 
+This makes it easy for the user to construct valid programs.&lt;/p&gt;
+
+&lt;p&gt;However, errors do happen. What happens when a block contains a disconnected
+input ?&lt;/p&gt;
+
+&lt;p&gt;In this version, we visually indicate at which block the error occurs and display
+an error message for the block. This can be seen in the picture below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://stefanj.me/funblocks/assets/error_disconnected.png&quot; alt=&quot;Error&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Some other errors, such as runtime errors will be addressed at a later stage.
+Luckily, we currently don’t have missing patterns or partial functions to check for.&lt;/p&gt;
+
+&lt;h2 id=&quot;project-management&quot;&gt;Project Management&lt;/h2&gt;
+&lt;p&gt;Project management falls in line with the way things are currently done with the
+regular CodeWorld site.&lt;/p&gt;
+
+&lt;p&gt;Blockly supports exporting the current workspace as XML. This XML is then sent
+to the server and a hash is returned. This hash identifies a CodeWorld
+FunBlocks application. For example
+&lt;a href=&quot;https://code.world/funblocks#PN2GoG8W2OMugJrzTw0GKYA&quot;&gt;code.world/funblocks#PN2GoG8W2OMugJrzTw0GKYA&lt;/a&gt;
+loads a drawing of a coordinate plane.&lt;/p&gt;
+
+&lt;p&gt;Google’s authentication API can be used to log in. Once a user is logged in he
+can then save and load his projects by name as well.&lt;/p&gt;
+
+&lt;h2 id=&quot;issues--problems&quot;&gt;Issues / Problems&lt;/h2&gt;
+&lt;p&gt;A large majority of the project is in JavaScript, this includes the Blockly
+library.&lt;/p&gt;
+
+&lt;p&gt;Originally I intended to keep the majority of the code in Haskell, however, this
+is difficult to do. Currently, there is a large part of additional code for
+Blockly and an additional JavaScript file that handles the user interface
+initialization and logic.&lt;/p&gt;
+
+&lt;p&gt;Most of the code that define the various types of Blocks are in a Haskell
+file. However, some more standard blocks such as the math number block (which
+included some validation) are modified from the regular Blockly code base. The
+let definition is also modified Blockly code.&lt;/p&gt;
+
+&lt;p&gt;Thus organisationally, similar features and code are split between the main
+project and the Blockly fork.&lt;/p&gt;
+
+&lt;p&gt;Another issue currently is the renaming of caller blocks for Let definitions.
+When a Let definition is renamed the callerb blocks should get renamed as well.
+This currently disabled as Blockly is sometimes calling the text input validator
+for the wrong block, which tries to rename all of &lt;em&gt;foo’s&lt;/em&gt; blocks to &lt;em&gt;bar&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The block type unification for the Let definition is also currently producing
+strange results and the issues on this are covered in the &lt;a href=&quot;https://github.com/google/codeworld/issues/186&quot;&gt;issue
+tracker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;further-work&quot;&gt;Further Work&lt;/h2&gt;
+&lt;p&gt;Currently, we are only able to build very simple programs. For more complicated
+applications such as animations, we require first class functions. We also need
+to cover more advanced data types. A starting point would be to cover lists and
+tuples.&lt;/p&gt;
+
+&lt;p&gt;For CodeWorld simulations, the user is required to supply his own world data type, and
+a user-friendly way is needed for the user to build these in the Blocks UI.&lt;/p&gt;
+
+&lt;p&gt;Some more advanced functional features such as pattern matching would make this
+easier, and it remains to be seen how this will be implemented.&lt;/p&gt;
+
+&lt;p&gt;Everything is currently on track, which might mean we will get to spend time on
+same of the more advanced features later.&lt;/p&gt;
+
+&lt;h2 id=&quot;ghcjs&quot;&gt;GHCJS&lt;/h2&gt;
+
+&lt;p&gt;Working on the project I’m exposed to
+GHCJS and JavaScript a lot and I really like what GHCJS is doing. JavaScript has
+a tendency to let anything almost work and I spend a lot of time debugging and
+finding JS errors when working on Blockly code.&lt;/p&gt;
+
+&lt;p&gt;Straight after starting out I decided to try and keep the bulk of the work in
+Haskell, which meant using GHCJS. 
+The GHCJS ecosystem lacks good documentation and sometimes in order to
+accomplish things that are simple in JS, a lot of time has to be spent navigating through 
+many files of GHCJS code and a bit of luck.
+One such is an example is when you want to assign a higher order function in
+JS:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Blockly.FunBlocks[&quot;block_number&quot;] = function(block){...}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;where we want to assign a function to do the code generation for the block
+indexed as “block_number”&lt;/p&gt;
+
+&lt;p&gt;Which involved looking at &lt;a href=&quot;https://github.com/ghcjs/ghcjs-base/blob/master/GHCJS/Foreign/Callback.hs&quot;&gt;GHCJS callback source
+files&lt;/a&gt;
+, even though there are &lt;a href=&quot;http://stackoverflow.com/questions/19415306/ghcjs-how-do-i-import-a-high-order-javascript-function-using-ffi&quot;&gt;Stackoverflow questions regarding similar
+issues&lt;/a&gt;, the
+GHCJS project is fast moving and the libraries keep changing.&lt;/p&gt;
+
+&lt;h2 id=&quot;haskell-summer-of-code&quot;&gt;Haskell Summer of Code&lt;/h2&gt;
+&lt;p&gt;I would like to say thanks for being part of this year’s &lt;a href=&quot;https://summer.haskell.org/&quot;&gt;Haskell Summer of
+Code&lt;/a&gt;
+as I’m enjoying working the project quite a bit. Thanks goes to all of those who
+made it possible as well.&lt;/p&gt;
+
+&lt;p&gt;I think the way the project is managed is quite good. We (me and my mentor,
+Chris Smith) are primarily
+communicating through emails and Github.
+Working on Github helps a lot and the issue system greatly helps manage the
+project. It helps when you want to have some idea or goal to work on or if you
+want to fix something quickly. It’s too easy to forget about a minor bug if it
+isn’t written down somewhere.&lt;/p&gt;
+
+&lt;p&gt;Chris has also been a great help testing new features, providing feedback,
+opening issues and reporting bugs (which sometimes are a lot, I apologize !) and
+providing overall direction for the project.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Hello Blockly</title>
    <link href="http://stefanj.me/funblocks/2016/05/28/hello-blockly/"/>
-   <updated>2016-05-28T00:00:00+00:00</updated>
+   <updated>2016-05-28T00:00:00+02:00</updated>
    <id>http://stefanj.me/funblocks/funblocks/2016/05/28/hello-blockly</id>
    <content type="html">&lt;h2 id=&quot;blockly&quot;&gt;Blockly&lt;/h2&gt;
 &lt;p&gt;Officially, HSOC projects start from the 13th June. This provides time 
@@ -194,7 +462,7 @@ solid implementation for the language.&lt;/p&gt;
  <entry>
    <title>Hello World</title>
    <link href="http://stefanj.me/funblocks/2016/05/24/hello-world/"/>
-   <updated>2016-05-24T00:00:00+00:00</updated>
+   <updated>2016-05-24T00:00:00+02:00</updated>
    <id>http://stefanj.me/funblocks/funblocks/2016/05/24/hello-world</id>
    <content type="html">&lt;p&gt;So, first off, I got accepted into &lt;a href=&quot;https://summer.haskell.org/&quot;&gt;Haskell Summer of Code 2016&lt;/a&gt;. The project is
 to develop a visual functional block based langauge for &lt;a href=&quot;https://code.world/&quot;&gt;CodeWorld&lt;/a&gt;, under &lt;a href=&quot;https://cdsmith.wordpress.com/&quot;&gt;Chris Smith&lt;/a&gt;. 
@@ -213,7 +481,7 @@ programming languages (and obviously Haskell) and hope to learn a good deal thro
  <entry>
    <title>Project Proposal</title>
    <link href="http://stefanj.me/funblocks/2016/05/23/project-proposal/"/>
-   <updated>2016-05-23T00:00:00+00:00</updated>
+   <updated>2016-05-23T00:00:00+02:00</updated>
    <id>http://stefanj.me/funblocks/funblocks/2016/05/23/project-proposal</id>
    <content type="html">&lt;h1 id=&quot;visual-functional-block-based-programming-language-for-codeworld&quot;&gt;Visual functional block-based programming language for CodeWorld&lt;/h1&gt;
 
