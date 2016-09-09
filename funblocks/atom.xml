@@ -4,7 +4,7 @@
  <title>FunBlocks</title>
  <link href="http://stefanj.me/funblocks/funblocks/atom.xml" rel="self"/>
  <link href="http://stefanj.me/funblocks/funblocks/"/>
- <updated>2016-09-09T21:09:18+02:00</updated>
+ <updated>2016-09-09T21:12:13+02:00</updated>
  <id>http://stefanj.me/funblocks</id>
  <author>
    <name>Stefan Jacholke</name>
@@ -284,7 +284,7 @@ can be used as a foundation.&lt;/p&gt;
 
 &lt;p&gt;I suggest you check out the result for yourself at:
 &lt;a href=&quot;https://code.world/blocks&quot;&gt;code.world/blocks&lt;/a&gt;. If you find any bugs or missing
-features, kindly help us out and &lt;a href=&quot;https://github.com/google/codeworld&quot;&gt;file an issue on the GitHub
+features, kindly help us out and &lt;a href=&quot;https://github.com/google/codeworld/issues&quot;&gt;file an issue on the GitHub
 tracker&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
