@@ -96,6 +96,287 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/funblocks//2016/08/08/hsoc-conclusion-result/">
+        Go on till you come to the end
+      </a>
+    </h1>
+
+    <span class="post-date">08 Aug 2016</span>
+
+    <p><em>A conclusion on the FunBlocks HSOC project</em></p>
+
+<p>With the conclusion of <a href="https://summer.haskell.org/">Haskell Summer of Code</a> it’s time to wrap up everything
+and talk about the result.</p>
+
+<p>With this post, I’ll go through my Haskell Summer of Code 2016 project, what it
+entailed and maybe a few thoughts on the subject.</p>
+
+<h2 id="a-quick-review">A quick review</h2>
+<p>The project entails the creation of a <em>functional</em> block-based programming language
+for CodeWorld. The aim is to create a user-friendly educational environment where
+students new to the concept of programming can familiarize themselves. Once
+students reach a certain maturity they graduate to the <a href="https://code.world/">text-based CodeWorld
+editor</a>.</p>
+
+<p>The project roughly comprises out of the following:</p>
+
+<ul>
+  <li>A block based user interface in order to drag and drop blocks. (We use a
+modified Blockly)</li>
+  <li>Code generation in order to see the result of dragging and dropping blocks.</li>
+  <li>Integration with CodeWorld in order to create CodeWorld applications and run
+them.</li>
+</ul>
+
+<p>The CodeWorld language is embedded within Haskell and for this project we
+generate a subset of it.</p>
+
+<p>In order to showcase the project, I’ll go through some of the features.</p>
+
+<h2 id="polymorphic-blocks">Polymorphic blocks</h2>
+
+<p>Polymorphism is quite important and was required, for even a basic <code class="highlighter-rouge">if</code>
+statement requires it.</p>
+
+<p>For an <code class="highlighter-rouge">if</code> we have the type <code class="highlighter-rouge">Bool -&gt; a -&gt; a -&gt; a</code>.</p>
+
+<p>Inputs are represented on the right side (external) or otherwise within the
+block (internal). The output type is given on the left side of the block.</p>
+
+<p>Internal style block:
+<img src="http://stefanj.me/funblocks/assets/internal.png" alt="Interan Block" /></p>
+
+<p>External style block:
+<img src="http://stefanj.me/funblocks/assets/external.png" alt="External Block" /></p>
+
+<p>Taking the <code class="highlighter-rouge">if</code> block as an example:
+<img src="http://stefanj.me/funblocks/assets/ifblock.png" alt="If Block" /></p>
+
+<p>We have a polymorphic type indicator for the types. The color being the same
+indicates all of the types are the same type variable.</p>
+
+<p>Once a block gets get connected, the most general type might be monomorphic,
+which then updates the shape of the block:</p>
+
+<p><img src="http://stefanj.me/funblocks/assets/monomorphic_example.png" alt="If Block" /></p>
+
+<p>We can see that this is constraining the type variable <code class="highlighter-rouge">a</code> to <code class="highlighter-rouge">Number</code></p>
+
+<h2 id="hindley-milner-type-inference">Hindley-Milner Type Inference</h2>
+<p>I think I should’ve implemented this at the start. Throughout the project,
+unification was a constant problem, with some blocks not always taking on the
+correct type in the given context. Much roundabout effort was spent on something
+that was replaced at the end.</p>
+
+<p>What is Hindley-Milner ?</p>
+
+<p>It is a simple type system for lambda calculus. For this
+project, <em>algorithm W</em> was implemented in order to infer the types. A simple system
+of tagging was used. We tag the connection types as the algorithm goes along,
+and at the end apply the required substitutions.</p>
+
+<p>Each block is given a lambda expression. This is usually just function application to the
+base CodeWorld function. For example we might have a circle block with the
+radius being <code class="highlighter-rouge">3</code>:</p>
+
+<p><code class="highlighter-rouge">
+(circle)(3)
+</code></p>
+
+<p>with <code class="highlighter-rouge">circle</code> having the type <code class="highlighter-rouge">circle : Number -&gt; Picture</code>.
+Some blocks have more advanced expressions, such as the list block:</p>
+
+<p><code class="highlighter-rouge">
+a:(b:(c:[]))
+</code></p>
+
+<p>with <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code>, and <code class="highlighter-rouge">c</code> being tagged with the correct connector block, and <code class="highlighter-rouge">[]</code>
+simply being the empty list and is a placeholder.</p>
+
+<p><img src="http://stefanj.me/funblocks/assets/listblock.png" alt="List Block" /></p>
+
+<p>In the above list block, the polymorphic connectors in light blue would
+correspond to <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code> and <code class="highlighter-rouge">c</code>.</p>
+
+<p>When we have an unconnected input we fill it with a placeholder undefined, with type <code class="highlighter-rouge">forall a. a</code>. 
+This forces the expression to take its type as the output.</p>
+
+<p>With the type system in place, it is much simpler to support new blocks, as we
+simply have to define its expression. The previously an ad-hoc
+approach was used which was based on most general unification. This involved
+specific block-logic being scattered all over the place, in order to
+determine the type correctly.</p>
+
+<h2 id="codeworld-blocks">CodeWorld Blocks</h2>
+
+<p>Since this project is for CodeWorld we do a few things differently from Haskell:</p>
+
+<ul>
+  <li>We add syntax symbols to blocks</li>
+  <li>We follow the CodeWorld convention of having types tupled, for example, a
+function call would be in the following form: <code class="highlighter-rouge">f(10, 20)</code></li>
+</ul>
+
+<p>CodeWorld makes learning programming easier by making it more visual. Students
+can create pictures and animations by combining various functions. We provide
+the same set of functions in the Blocks UI.</p>
+
+<p>In order to build a simple tree the user snaps together some blocks:
+<img src="http://stefanj.me/funblocks/assets/treeblocks.png" alt="Tree Blocks" /></p>
+
+<p>In order to produce:</p>
+
+<p><img src="http://stefanj.me/funblocks/assets/treeprogram.png" alt="Tree Program" /></p>
+
+<p>An advantage of using a block based environment to do this is that it visually
+indicates the user what is valid and what the program expects. Using different
+connector shapes the user can see that a picture is required for the <code class="highlighter-rouge">drawingOf</code>
+block, and that the colored block takes a picture and a color and outputs a
+picture. This also makes it much more difficult to build invalid programs.</p>
+
+<p>Some more tricky blocks to implement were the function block and the list
+comprehension block, as they sometimes had odd edge cases (especially in the old
+type system).</p>
+
+<h2 id="local-variables">Local Variables</h2>
+<p>Another thing we do differently from Blockly is to only allow instantiation of
+variables from the defining parent.</p>
+
+<p><img src="http://stefanj.me/funblocks/assets/localvariables.png" alt="Tree Program" /></p>
+
+<p>In order to create the <code class="highlighter-rouge">x</code> variable in the picture above, the user can click and
+drag the white shaded <code class="highlighter-rouge">x</code> (next to var). These variables also can’t be connected
+to somewhere, where they are outside of their defining scope.</p>
+
+<h2 id="user-defined-data-types">User-defined data types</h2>
+<p>Users are able to create their own data types. They are based on algebraic data
+types (they have to be, since it’s Haskell).</p>
+
+<p>In order to create these, the user drags a data block with which he can add sum
+components. A product component can then be attached.</p>
+
+<p>A simple example would be</p>
+
+<p><code class="highlighter-rouge">
+data Temperature = Degrees Number
+                 | Fahrenheit Number
+</code></p>
+
+<p>which is given in the Blocks environment as:
+<img src="http://stefanj.me/funblocks/assets/usertypes.png" alt="Temperature usertype" /></p>
+
+<p>Ideally, a single block would have captured the idea of an algebraic data types.
+More work is needed on Blockly in order to support mixing inline input styles
+with external input styles.</p>
+
+<p>Once a user data type is created, corresponding constructor blocks, and case
+blocks are added dynamically to the toolbox.</p>
+
+<p>Currently, there is no support for higher kinded types.</p>
+
+<h2 id="code-generation">Code generation</h2>
+
+<p>The overall flow of the program is something akin to:</p>
+
+<p><img src="http://stefanj.me/funblocks/assets/flowprogr.png" alt="Flow diagram" /></p>
+
+<p>These backend components are implemented in Haskell, which run in the browser
+thanks to <a href="https://github.com/ghcjs/ghcjs">GHCJS</a>.</p>
+
+<p>Once a change occurs on the Blockly workspace we update on the event and build a
+simple AST, which is something similar to:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>data Expr = LiteralS T.Text
+          | LiteralN Float
+          | LocalVar T.Text
+          | CallFun T.Text [Expr]
+          | FuncDef T.Text [T.Text] Expr
+          ...
+</code></pre>
+</div>
+
+<p>Once we have this, the code generation is simple and is mostly a matter of
+formatting.</p>
+
+<h2 id="miscellaneous">Miscellaneous</h2>
+
+<p>Some other things that were implemented:</p>
+
+<ul>
+  <li>Some support for first class functions. Functions can be used as inputs. The
+most important use case here is that the <code class="highlighter-rouge">animationOf</code>, <code class="highlighter-rouge">interactionOf</code>,
+<code class="highlighter-rouge">simulationOf</code> program blocks require functions that specify the new state of
+the world, event handling, drawing the world and so on.</li>
+  <li>Project management - Projects can be saved and loaded. Programs can also be
+shared by a URL. <a href="https://code.world/blocks#PHBEyguLbhv1ZhIpz-v6c5Q">A really simple
+example</a>.</li>
+  <li>Some basic help, which allows users to click on programs and load them into
+the workspace.</li>
+</ul>
+
+<p>Some work also went into unseen things:</p>
+
+<ul>
+  <li>Improving performance</li>
+  <li>Improving usability, stability, user-friendliness and error messages</li>
+  <li>Ensuring that only (mostly) valid programs can be built.</li>
+  <li>The gazillion bug fixes</li>
+</ul>
+
+<h1 id="hsoc">HSOC</h1>
+
+<p>This project was part of this years <a href="https://summer.haskell.org/">Haskell Summer of
+Code</a> initiative, which encourages contribution to
+the Haskell community.</p>
+
+<p>A big thanks to Edward Kmett, Ryan Trinkle and others who helped organize this
+year’s program.</p>
+
+<p>Another big thanks to my mentor Chris Smith, for his thorough bug tracking,
+-reporting and overall guidance.
+<a href="https://github.com/google/codeworld">CodeWorld</a> is his educational environment
+and I’m glad to have contributed a component to it.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Quite a lot of work went into the <a href="https://github.com/stefan-j/blockly">functional Blockly fork</a>. 
+The CodeWorld functionality and -blocks are kept apart from the Blockly code, with
+the Blockly fork mostly covering the functional features.</p>
+
+<p>I’m not really sure how to measure the amount of work done. Some metrics at the time
+of writing:</p>
+
+<ul>
+  <li>257 commits to the <a href="https://github.com/google/codeworld">CodeWorld repository</a></li>
+  <li>395 commits to the <a href="https://github.com/stefan-j/blockly">Blockly fork</a></li>
+</ul>
+
+<p>Lines of code would have been inflated for Blockly, as it would have included
+the build changes. Haskell also produces fewer lines of code.</p>
+
+<p>The project was great and I enjoyed it. It has a few issues and bugs
+that still need work. Overall I think it is in a good state for future work and
+can be used as a foundation.</p>
+
+<p>Some further work might include:</p>
+
+<ul>
+  <li>Finishing up user data types</li>
+  <li>A guard block or guard functionality. Nesting <code class="highlighter-rouge">if</code>s can get tedious.</li>
+  <li>Mixing internal and external inputs</li>
+  <li>Live previewing of values</li>
+  <li>Pattern matching</li>
+</ul>
+
+<p>I suggest you check out the result for yourself at:
+<a href="https://code.world/blocks">code.world/blocks</a>. If you find any bugs or missing
+features, kindly help us out and <a href="https://github.com/google/codeworld">file an issue on the GitHub
+tracker</a>.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/funblocks//2016/06/30/funblocks-prototype/">
         Fun Blocks Prototype
       </a>
