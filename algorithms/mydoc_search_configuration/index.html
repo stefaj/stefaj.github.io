@@ -311,7 +311,7 @@ $('#toc').on('click', 'a', function() {
 <h2 id="including-the-body-field-in-search">Including the body field in search</h2>
 <p>I’ve found that include the <code class="highlighter-rouge">body</code> field in the search creates too many problems, and so I’ve removed <code class="highlighter-rouge">body</code> from the search. You can see the results of including the <code class="highlighter-rouge">body</code> by adding this along with the other fields in search.json:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="w">      </span><span class="s2">"body"</span><span class="err">:</span><span class="w"> </span><span class="s2">"{{ page.content | strip_html | strip_newlines | replace: '\', '\\\\' | replace: '"</span><span class="err">',</span><span class="w"> </span><span class="err">'\\</span><span class="s2">"' | replace: '^t', '    '  }}"</span><span class="err">,</span><span class="w">
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">      </span><span class="s2">"body"</span><span class="err">:</span><span class="w"> </span><span class="s2">"{{ page.content | strip_html | strip_newlines | replace: '\', '\\\\' | replace: '"</span><span class="err">',</span><span class="w"> </span><span class="err">'\\</span><span class="s2">"' | replace: '^t', '    '  }}"</span><span class="err">,</span><span class="w">
 </span></code></pre>
 </div>
 
@@ -325,7 +325,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>At some point, you may want to customize the search results more. Here’s a little more detail that will be helpful. The search.json file retrieves various page values:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">---</span><span class="w">
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">---</span><span class="w">
 </span><span class="err">title:</span><span class="w"> </span><span class="err">search</span><span class="w">
 </span><span class="err">layout:</span><span class="w"> </span><span class="err">none</span><span class="w">
 </span><span class="err">search:</span><span class="w"> </span><span class="err">exclude</span><span class="w">
@@ -362,7 +362,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>The _includes/topnav.html file then makes use of these values:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;li&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;li&gt;</span>
     <span class="c">&lt;!--start search--&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"search-demo-container"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"search-input"</span> <span class="na">placeholder=</span><span class="s">"search..."</span><span class="nt">&gt;</span>
@@ -418,7 +418,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Stefan Jacholke. All rights reserved. <br />
-<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Jun 30, 2016 <br />
+<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Sep 9, 2016 <br />
 <p><img src="/algorithms/images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

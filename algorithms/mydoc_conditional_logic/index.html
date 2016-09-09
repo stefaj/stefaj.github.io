@@ -312,7 +312,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>On a page in my site (it can be HTML or markdown), you can conditionalize content using the following:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">platform</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"mac"</span><span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">platform</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"mac"</span><span class="w"> </span><span class="p">%}</span>
 Here's some info about the Mac.
 <span class="p">{%</span><span class="w"> </span><span class="kr">elsif</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">platform</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"windows"</span><span class="w"> </span><span class="p">%}</span>
 Here's some info about Windows ...
@@ -324,7 +324,7 @@ Here's some info about Windows ...
 
 <p>Here’s an example of <code class="highlighter-rouge">if-else</code> logic inside a list:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>To bake a casserole:
+<div class="highlighter-rouge"><pre class="highlight"><code>To bake a casserole:
 
 1. Gather the ingredients.
 <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"writer"</span><span class="w"> </span><span class="p">%}</span>
@@ -344,7 +344,7 @@ Here's some info about Windows ...
 
 <p>For example, here’s an example using <code class="highlighter-rouge">or</code>:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s2">"vegan"</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"vegetarian"</span><span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s2">"vegan"</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"vegetarian"</span><span class="w"> </span><span class="p">%}</span>
     Then run this...
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </code></pre>
@@ -352,7 +352,7 @@ Here's some info about Windows ...
 
 <p>Note that you have to specify the full condition each time. You can’t shorten the above logic to the following:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s2">"vegan"</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="s2">"vegetarian"</span><span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s2">"vegan"</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="s2">"vegetarian"</span><span class="w"> </span><span class="p">%}</span>
     // run this.
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </code></pre>
@@ -364,7 +364,7 @@ Here's some info about Windows ...
 
 <p>You can also use <code class="highlighter-rouge">unless</code> in your logic, like this:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">output</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"pdf"</span><span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">output</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"pdf"</span><span class="w"> </span><span class="p">%}</span>
 ...do this
 <span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
 </code></pre>
@@ -378,7 +378,7 @@ Here's some info about Windows ...
 
 <p>Here’s an example of using conditional logic based on a value in a data file:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">options</span><span class="p">.</span><span class="nv">output</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"alpha"</span><span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">options</span><span class="p">.</span><span class="nv">output</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"alpha"</span><span class="w"> </span><span class="p">%}</span>
 show this content...
 <span class="p">{%</span><span class="w"> </span><span class="kr">elsif</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">options</span><span class="p">.</span><span class="nv">output</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"beta"</span><span class="w"> </span><span class="p">%}</span>
 show this content...
@@ -442,7 +442,7 @@ this shows if neither of the above two if conditions are met.
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Stefan Jacholke. All rights reserved. <br />
-<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Jun 30, 2016 <br />
+<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Sep 9, 2016 <br />
 <p><img src="/algorithms/images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

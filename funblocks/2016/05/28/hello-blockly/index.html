@@ -121,32 +121,32 @@ Running Arch I’ve got pacman. I already had most the required packages
 
 <p>What I was missing was</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pacman -S npm nodejs
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">
+pacman -S npm nodejs
+</code></p>
 
 <p>I also had GHC 7.10.3 and cabal already installed.</p>
 
 <p>Installing GHCJS:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/ghcjs/ghcjs.git
+<p><code class="highlighter-rouge">
+git clone https://github.com/ghcjs/ghcjs.git
 cabal install ./ghcjs
 ghcjs-boot
-</code></pre>
-</div>
+</code></p>
 
 <p>and also ghcjs-dom</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cabal install ghcjs-dom
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">
+cabal install ghcjs-dom
+</code></p>
 
 <p>I don’t have the cabal bin in my PATH so I needed:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export PATH=/home/codeworld/.cabal/bin:$PATH
-</code></pre>
-</div>
-<p>before running the standard CodeWorld build script. After running 
+<p><code class="highlighter-rouge">
+export PATH=/home/codeworld/.cabal/bin:$PATH
+</code>
+before running the standard CodeWorld build script. After running 
 <code class="highlighter-rouge">build.sh</code>, <code class="highlighter-rouge">run.sh</code> started up the web server. 
 Everything ran fine, minus saving projects, which I did not set up.</p>
 
@@ -169,35 +169,34 @@ Blockly and an iframe for running a standard CodeWorld application.</p>
 
 <p>Setting up the example Snap site comprises of:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>module Main where
+<p>```
+module Main where</p>
 
-import Control.Applicative
+<p>import Control.Applicative
 import Snap.Core
 import Snap.Http.Server
 import Snap.Util.FileServe
 import Snap.Util.FileUploads
 import System.Directory
-import System.FilePath
+import System.FilePath</p>
 
-main :: IO ()
-main = quickHttpServe site
+<p>main :: IO ()
+main = quickHttpServe site</p>
 
-site :: Snap ()
+<p>site :: Snap ()
 site =
-        ifTop (writeBS "hello world") &lt;|&gt;
-        route [ ("foo", writeBS "bar")
-               ,("echo/:echoparam", echoHandler)
+        ifTop (writeBS “hello world”) &lt;|&gt;
+        route [ (“foo”, writeBS “bar”)
+               ,(“echo/:echoparam”, echoHandler)
                ] &lt;|&gt;
-        serveDirectory "web"
+        serveDirectory “web”</p>
 
-
-echoHandler :: Snap ()
+<p>echoHandler :: Snap ()
 echoHandler = do
-    param &lt;- getParam "echoparam"
-    maybe (writeBS "must specify echoparam in URL")
+    param &lt;- getParam “echoparam”
+    maybe (writeBS “must specify echoparam in URL”)
           writeBS param
-</code></pre>
-</div>
+```</p>
 
 <p>With the server looking for a page to serve from “web” if it does not 
 match any of the routes.</p>
@@ -206,11 +205,11 @@ match any of the routes.</p>
 the locally hosted CodeWorld server with a XMLHttpRequest, however, this I could not do 
 as the FunBlocks site and CodeWorld server were on different ports, thus I ended up receiving</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>XMLHttpRequest cannot load. No 'Access-Control-Allow-Origin' header is 
+<p><code class="highlighter-rouge">
+XMLHttpRequest cannot load. No 'Access-Control-Allow-Origin' header is 
 present on the requested resource.
 Origin is therefore not allowed access
-</code></pre>
-</div>
+</code></p>
 
 <p>as an error.</p>
 

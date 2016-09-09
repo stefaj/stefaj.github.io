@@ -295,7 +295,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>First create an include that contains your series button:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"seriesContext"</span><span class="nt">&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"seriesContext"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">class=</span><span class="s">"btn btn-primary dropdown-toggle"</span><span class="nt">&gt;</span>Series Demo <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span>
         <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
@@ -327,7 +327,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Now create another include for the Next button at the bottom of the page. Copy the following code, changing the series name to your series’name:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>{% assign series_pages = site.tags.series_acme %}
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>{% assign series_pages = site.tags.series_acme %}
     {% for p in pages %}
     {% if p.series == "ACME series" %}
     {% assign nextTopic = page.weight | plus: "1"  %}
@@ -348,7 +348,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Now add the following frontmatter to each page in the series:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">series:</span><span class="w"> </span><span class="s2">"ACME series"</span><span class="w">
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">series:</span><span class="w"> </span><span class="s2">"ACME series"</span><span class="w">
 </span><span class="err">weight:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
 </span></code></pre>
 </div>
@@ -361,7 +361,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>On each series page, add a link to the series button at the top and a link to the next button at the bottom.</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>&lt;!-- your frontmatter goes here --&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;!-- your frontmatter goes here --&gt;
 
 <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span><span class="na">custom/series_acme</span><span class="p">.</span><span class="na">html</span><span class="w"> </span><span class="p">%}</span>
 
@@ -402,7 +402,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Stefan Jacholke. All rights reserved. <br />
-<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Jun 30, 2016 <br />
+<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Sep 9, 2016 <br />
 <p><img src="/algorithms/images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

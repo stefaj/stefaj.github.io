@@ -183,9 +183,9 @@ project.</p>
 
 <p>we obtain the output code of:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>main = drawingOf(rotated(colored(solidRectangle(7,5), white),(60 + 70) * 0.9) &amp; solidCircle(4))
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">
+main = drawingOf(rotated(colored(solidRectangle(7,5), white),(60 + 70) * 0.9) &amp; solidCircle(4))
+</code></p>
 
 <p>Which looks rather ugly, but code formatting will be addressed at a later stage.</p>
 
@@ -197,14 +197,14 @@ into a single block of code. This process is repeated for all top-level blocks.<
 <p>For each block, a generation function is assigned, which looks something like
 this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>blockSector :: GeneratorFunction
+<p><code class="highlighter-rouge">
+blockSector :: GeneratorFunction
 blockSector block = do
     startangle &lt;- valueToCode block "STARTANGLE" CNone
     endangle &lt;- valueToCode block "ENDANGLE" CNone
     radius &lt;- valueToCode block "RADIUS" CNone
     return $ none $ "sector(" ++ startangle ++ "," ++ endangle ++ "," ++ radius ++ ")"
-</code></pre>
-</div>
+</code></p>
 
 <p>This approach has some disadvantages, such being:</p>
 
@@ -325,9 +325,9 @@ many files of GHCJS code and a bit of luck.
 One such is an example is when you want to assign a higher order function in
 JS:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Blockly.FunBlocks["block_number"] = function(block){...}
-</code></pre>
-</div>
+<p><code class="highlighter-rouge">
+Blockly.FunBlocks["block_number"] = function(block){...}
+</code></p>
 
 <p>where we want to assign a function to do the code generation for the block
 indexed as “block_number”</p>

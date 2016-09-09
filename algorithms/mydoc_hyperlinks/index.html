@@ -297,7 +297,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>If you need to use HTML, use the normal syntax:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://google.com"</span><span class="nt">&gt;</span>Google<span class="nt">&lt;/a&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://google.com"</span><span class="nt">&gt;</span>Google<span class="nt">&lt;/a&gt;</span>
 </code></pre>
 </div>
 
@@ -311,7 +311,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>OR</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/algorithms/permalink"</span><span class="nt">&gt;</span>page<span class="nt">&lt;/a&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/algorithms/permalink"</span><span class="nt">&gt;</span>page<span class="nt">&lt;/a&gt;</span>
 </code></pre>
 </div>
 
@@ -323,7 +323,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>The code iterates through every page listed in the table of contents sidebars (as well as the top navigation menus) and creates an output that looks like this for each link:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mydoc_introduction</span><span class="pi">:</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">mydoc_introduction</span><span class="pi">:</span>
   <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Introduction"</span>
   <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mydoc_introduction"</span>
   <span class="s">link</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;a</span><span class="nv"> </span><span class="s">href='/mydoc_introduction/'&gt;Introduction&lt;/a&gt;"</span>
@@ -332,7 +332,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>In the frontmatter for urls.txt, add the name of each of your sidebars, like this:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
 <span class="s">layout</span><span class="pi">:</span> <span class="s">none</span>
 <span class="s">search</span><span class="pi">:</span> <span class="s">exclude</span>
 <span class="s">sidebar</span><span class="pi">:</span>
@@ -355,13 +355,13 @@ $('#toc').on('click', 'a', function() {
 
 <p>To create a link in a topic, just reference the appropriate value in the urls.yml file, like this:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>{{site.data.urls.mydoc_introduction.link}}
+<div class="highlighter-rouge"><pre class="highlight"><code>{{site.data.urls.mydoc_introduction.link}}
 </code></pre>
 </div>
 
 <p>This will insert the following into your topic:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'/mydoc_getting_started/'</span><span class="nt">&gt;</span>Getting started<span class="nt">&lt;/a&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'/mydoc_getting_started/'</span><span class="nt">&gt;</span>Getting started<span class="nt">&lt;/a&gt;</span>
 </code></pre>
 </div>
 
@@ -369,7 +369,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>To insert a link in the context of a phrase, you can use this syntax:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>After downloading the theme, you can [get started in building the theme]({{site.data.urls.mydoc_getting_started.url}}).
+<div class="highlighter-rouge"><pre class="highlight"><code>After downloading the theme, you can [get started in building the theme]({{site.data.urls.mydoc_getting_started.url}}).
 </code></pre>
 </div>
 
@@ -377,7 +377,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>If you’re in HTML and can’t use Markdown, then use the following code:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>After downloading the theme, you can <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{site.data.urls.mydoc_getting_started.url}}"</span><span class="nt">&gt;</span>get started in building the theme<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>After downloading the theme, you can <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{site.data.urls.mydoc_getting_started.url}}"</span><span class="nt">&gt;</span>get started in building the theme<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
 </code></pre>
 </div>
 
@@ -491,7 +491,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Stefan Jacholke. All rights reserved. <br />
-<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Jun 30, 2016 <br />
+<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Sep 9, 2016 <br />
 <p><img src="/algorithms/images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

@@ -318,7 +318,7 @@ tags: [formatting, single_sourcing]
   <li>
     <p>In the _data/tags.yml file, add the tag names you want to allow. For example:</p>
 
-    <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">allowed-tags:</span><span class="w">
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="err">allowed-tags:</span><span class="w">
   </span><span class="err">-</span><span class="w"> </span><span class="err">getting_started</span><span class="w">
   </span><span class="err">-</span><span class="w"> </span><span class="err">overview</span><span class="w">
   </span><span class="err">-</span><span class="w"> </span><span class="err">formatting</span><span class="w">
@@ -334,7 +334,7 @@ tags: [formatting, single_sourcing]
 
     <p>Each tag archive file needs only this:</p>
 
-    <div class="language-liquid highlighter-rouge"><pre class="highlight"><code>---
+    <div class="highlighter-rouge"><pre class="highlight"><code>---
 title: "Collaboration pages"
 tagName: collaboration
 search: exclude
@@ -376,7 +376,7 @@ sidebar: tags_sidebar
 
 <p>If you want to retrieve pages outside of a particular tag_archive page, you could use this code:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>Getting started pages: 
+<div class="highlighter-rouge"><pre class="highlight"><code>Getting started pages: 
 &lt;ul&gt;
 <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>page<span class="w"> </span>in<span class="w"> </span>site.pages<span class="w"> </span><span class="p">%}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>page.tags<span class="w"> </span><span class="p">%}</span>
@@ -746,7 +746,7 @@ sidebar: tags_sidebar
 
 <p>If you want to sort the pages alphabetically, you have to apply a <code class="highlighter-rouge">sort</code> filter:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><pre class="highlight"><code>
 Getting started pages:
 &lt;ul&gt;
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">sorted_pages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">(</span><span class="nv">site</span><span class="p">.</span><span class="nv">pages</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s1">'title'</span>)<span class="w"> </span><span class="p">%}</span>
@@ -1168,7 +1168,7 @@ Getting started pages:
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Stefan Jacholke. All rights reserved. <br />
-<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Jun 30, 2016 <br />
+<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Sep 9, 2016 <br />
 <p><img src="/algorithms/images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

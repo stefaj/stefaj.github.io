@@ -291,7 +291,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Put images inside the <code class="highlighter-rouge">images</code> folder in your root directory. You can create subdirectories inside this directory. Although you could use Markdown syntax for images, the HTML syntax is probably easier:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">title=</span><span class="s">"my sample page"</span> <span class="na">src=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">images</span><span class="err">/</span><span class="na">jekyll</span><span class="err">.</span><span class="na">png</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span> <span class="nt">/&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">title=</span><span class="s">"my sample page"</span> <span class="na">src=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">images</span><span class="err">/</span><span class="na">jekyll</span><span class="err">.</span><span class="na">png</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span> <span class="nt">/&gt;</span>
 </code></pre>
 </div>
 
@@ -315,7 +315,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>If you want to add a figure caption, you can do so using standard <code class="highlighter-rouge">figure</code> HTML tags:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;figure&gt;&lt;img</span> <span class="na">title=</span><span class="s">"my sample page"</span> <span class="na">src=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">images</span><span class="err">/</span><span class="na">jekyll</span><span class="err">.</span><span class="na">png</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span> <span class="nt">/&gt;&lt;figcaption&gt;</span>Your caption<span class="nt">&lt;/figcaption&gt;&lt;/figure&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;figure&gt;&lt;img</span> <span class="na">title=</span><span class="s">"my sample page"</span> <span class="na">src=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">images</span><span class="err">/</span><span class="na">jekyll</span><span class="err">.</span><span class="na">png</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span> <span class="nt">/&gt;&lt;figcaption&gt;</span>Your caption<span class="nt">&lt;/figcaption&gt;&lt;/figure&gt;</span>
 </code></pre>
 </div>
 
@@ -329,7 +329,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>You can also embed SVG graphics. If you use SVG, you need to use the HTML syntax so that you can define a width/container for the graphic. Here’s a sample embed:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/algorithms/images/helpapi.svg"</span> <span class="na">style=</span><span class="s">"max-width: 600px;"</span> <span class="nt">/&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/algorithms/images/helpapi.svg"</span> <span class="na">style=</span><span class="s">"max-width: 600px;"</span> <span class="nt">/&gt;</span>
 </code></pre>
 </div>
 
@@ -339,14 +339,14 @@ $('#toc').on('click', 'a', function() {
 
 <p>SVG images will expand to the size of their container, so you have to specify it here. The previous syntax isn’t well supported in IE, so you would be better off using the <code class="highlighter-rouge">object</code> element like this:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"max-width:600px;"</span><span class="nt">&gt;&lt;object</span> <span class="na">type=</span><span class="s">"image/svg+xml"</span> <span class="na">data=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">images</span><span class="err">/</span><span class="na">helpapi</span><span class="err">.</span><span class="na">svg</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span><span class="nt">&gt;</span>Your browser does not support SVG<span class="nt">&lt;/object&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"max-width:600px;"</span><span class="nt">&gt;&lt;object</span> <span class="na">type=</span><span class="s">"image/svg+xml"</span> <span class="na">data=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">images</span><span class="err">/</span><span class="na">helpapi</span><span class="err">.</span><span class="na">svg</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span><span class="nt">&gt;</span>Your browser does not support SVG<span class="nt">&lt;/object&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
 
 <p>Here’s the same code with <code class="highlighter-rouge">figure</code> elements:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"max-width:600px;"</span><span class="nt">&gt;&lt;figure&gt;&lt;object</span> <span class="na">type=</span><span class="s">"image/svg+xml"</span> <span class="na">data=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">images</span><span class="err">/</span><span class="na">helpapi</span><span class="err">.</span><span class="na">svg</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span><span class="nt">&gt;</span>Your browser does not support SVG<span class="nt">&lt;/object&gt;&lt;figcaption&gt;</span>This is your caption<span class="nt">&lt;/figcaption&gt;&lt;/figure&gt;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"max-width:600px;"</span><span class="nt">&gt;&lt;figure&gt;&lt;object</span> <span class="na">type=</span><span class="s">"image/svg+xml"</span> <span class="na">data=</span><span class="s">"{{ "</span><span class="err">/</span><span class="na">images</span><span class="err">/</span><span class="na">helpapi</span><span class="err">.</span><span class="na">svg</span><span class="err">"</span> <span class="err">|</span> <span class="na">prepend:</span> <span class="na">site</span><span class="err">.</span><span class="na">baseurl</span> <span class="err">}}"</span><span class="nt">&gt;</span>Your browser does not support SVG<span class="nt">&lt;/object&gt;&lt;figcaption&gt;</span>This is your caption<span class="nt">&lt;/figcaption&gt;&lt;/figure&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
@@ -385,7 +385,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Stefan Jacholke. All rights reserved. <br />
-<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Jun 30, 2016 <br />
+<p>Page last updated:</span> March 20, 2016<br/> Site last generated: Sep 9, 2016 <br />
 <p><img src="/algorithms/images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

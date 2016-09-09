@@ -4,7 +4,7 @@
  <title>FunBlocks</title>
  <link href="http://stefanj.me/funblocks/funblocks/atom.xml" rel="self"/>
  <link href="http://stefanj.me/funblocks/funblocks/"/>
- <updated>2016-06-30T14:44:16+02:00</updated>
+ <updated>2016-09-08T23:24:46+02:00</updated>
  <id>http://stefanj.me/funblocks</id>
  <author>
    <name>Stefan Jacholke</name>
@@ -105,9 +105,9 @@ project.&lt;/p&gt;
 
 &lt;p&gt;we obtain the output code of:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;main = drawingOf(rotated(colored(solidRectangle(7,5), white),(60 + 70) * 0.9) &amp;amp; solidCircle(4))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+main = drawingOf(rotated(colored(solidRectangle(7,5), white),(60 + 70) * 0.9) &amp;amp; solidCircle(4))
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Which looks rather ugly, but code formatting will be addressed at a later stage.&lt;/p&gt;
 
@@ -119,14 +119,14 @@ into a single block of code. This process is repeated for all top-level blocks.&
 &lt;p&gt;For each block, a generation function is assigned, which looks something like
 this:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;blockSector :: GeneratorFunction
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+blockSector :: GeneratorFunction
 blockSector block = do
     startangle &amp;lt;- valueToCode block &quot;STARTANGLE&quot; CNone
     endangle &amp;lt;- valueToCode block &quot;ENDANGLE&quot; CNone
     radius &amp;lt;- valueToCode block &quot;RADIUS&quot; CNone
     return $ none $ &quot;sector(&quot; ++ startangle ++ &quot;,&quot; ++ endangle ++ &quot;,&quot; ++ radius ++ &quot;)&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;This approach has some disadvantages, such being:&lt;/p&gt;
 
@@ -247,9 +247,9 @@ many files of GHCJS code and a bit of luck.
 One such is an example is when you want to assign a higher order function in
 JS:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Blockly.FunBlocks[&quot;block_number&quot;] = function(block){...}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+Blockly.FunBlocks[&quot;block_number&quot;] = function(block){...}
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;where we want to assign a function to do the code generation for the block
 indexed as “block_number”&lt;/p&gt;
@@ -311,32 +311,32 @@ Running Arch I’ve got pacman. I already had most the required packages
 
 &lt;p&gt;What I was missing was&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pacman -S npm nodejs
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+pacman -S npm nodejs
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;I also had GHC 7.10.3 and cabal already installed.&lt;/p&gt;
 
 &lt;p&gt;Installing GHCJS:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/ghcjs/ghcjs.git
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+git clone https://github.com/ghcjs/ghcjs.git
 cabal install ./ghcjs
 ghcjs-boot
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;and also ghcjs-dom&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cabal install ghcjs-dom
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+cabal install ghcjs-dom
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;I don’t have the cabal bin in my PATH so I needed:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=/home/codeworld/.cabal/bin:$PATH
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;before running the standard CodeWorld build script. After running 
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+export PATH=/home/codeworld/.cabal/bin:$PATH
+&lt;/code&gt;
+before running the standard CodeWorld build script. After running 
 &lt;code class=&quot;highlighter-rouge&quot;&gt;build.sh&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; started up the web server. 
 Everything ran fine, minus saving projects, which I did not set up.&lt;/p&gt;
 
@@ -359,35 +359,34 @@ Blockly and an iframe for running a standard CodeWorld application.&lt;/p&gt;
 
 &lt;p&gt;Setting up the example Snap site comprises of:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module Main where
+&lt;p&gt;```
+module Main where&lt;/p&gt;
 
-import Control.Applicative
+&lt;p&gt;import Control.Applicative
 import Snap.Core
 import Snap.Http.Server
 import Snap.Util.FileServe
 import Snap.Util.FileUploads
 import System.Directory
-import System.FilePath
+import System.FilePath&lt;/p&gt;
 
-main :: IO ()
-main = quickHttpServe site
+&lt;p&gt;main :: IO ()
+main = quickHttpServe site&lt;/p&gt;
 
-site :: Snap ()
+&lt;p&gt;site :: Snap ()
 site =
-        ifTop (writeBS &quot;hello world&quot;) &amp;lt;|&amp;gt;
-        route [ (&quot;foo&quot;, writeBS &quot;bar&quot;)
-               ,(&quot;echo/:echoparam&quot;, echoHandler)
+        ifTop (writeBS “hello world”) &amp;lt;|&amp;gt;
+        route [ (“foo”, writeBS “bar”)
+               ,(“echo/:echoparam”, echoHandler)
                ] &amp;lt;|&amp;gt;
-        serveDirectory &quot;web&quot;
+        serveDirectory “web”&lt;/p&gt;
 
-
-echoHandler :: Snap ()
+&lt;p&gt;echoHandler :: Snap ()
 echoHandler = do
-    param &amp;lt;- getParam &quot;echoparam&quot;
-    maybe (writeBS &quot;must specify echoparam in URL&quot;)
+    param &amp;lt;- getParam “echoparam”
+    maybe (writeBS “must specify echoparam in URL”)
           writeBS param
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```&lt;/p&gt;
 
 &lt;p&gt;With the server looking for a page to serve from “web” if it does not 
 match any of the routes.&lt;/p&gt;
@@ -396,11 +395,11 @@ match any of the routes.&lt;/p&gt;
 the locally hosted CodeWorld server with a XMLHttpRequest, however, this I could not do 
 as the FunBlocks site and CodeWorld server were on different ports, thus I ended up receiving&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;XMLHttpRequest cannot load. No &#39;Access-Control-Allow-Origin&#39; header is 
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+XMLHttpRequest cannot load. No &#39;Access-Control-Allow-Origin&#39; header is 
 present on the requested resource.
 Origin is therefore not allowed access
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;as an error.&lt;/p&gt;
 

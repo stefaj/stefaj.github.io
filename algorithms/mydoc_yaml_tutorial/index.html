@@ -325,7 +325,7 @@ $('#toc').on('click', 'a', function() {
 
 <p><strong>YAML:</strong></p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">name</span><span class="pi">:</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">name</span><span class="pi">:</span>
   <span class="s">husband</span><span class="pi">:</span> <span class="s">Tom</span>
   <span class="s">wife</span><span class="pi">:</span> <span class="s">Shannon</span>
 </code></pre>
@@ -333,7 +333,7 @@ $('#toc').on('click', 'a', function() {
 
 <p><strong>Markdown + Liquid:</strong></p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>Husband's name: <span class="p">{{</span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">samplelist</span><span class="p">.</span><span class="nv">name</span><span class="p">.</span><span class="nv">husband</span><span class="p">}}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>Husband's name: <span class="p">{{</span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">samplelist</span><span class="p">.</span><span class="nv">name</span><span class="p">.</span><span class="nv">husband</span><span class="p">}}</span>
 
 Wife's name: <span class="p">{{</span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">samplelist</span><span class="p">.</span><span class="nv">name</span><span class="p">.</span><span class="nv">wife</span><span class="p">}}</span>
 </code></pre>
@@ -351,7 +351,7 @@ Wife's name: <span class="p">{{</span><span class="nv">site</span><span class="p
 
 <p><strong>YAML:</strong></p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">feedback</span><span class="pi">:</span> <span class="pi">&gt;</span> 
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">feedback</span><span class="pi">:</span> <span class="pi">&gt;</span> 
   <span class="no">This is my feedback to you.</span>
   <span class="no">Even if I include linebreaks here,</span>
   <span class="no">all of the linebreaks will be removed when the value is inserted.</span>
@@ -367,7 +367,7 @@ Wife's name: <span class="p">{{</span><span class="nv">site</span><span class="p
 
 <p><strong>Markdown:</strong></p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code>**Feedback**
+<div class="highlighter-rouge"><pre class="highlight"><code>**Feedback**
 This is my feedback to you. Even if I include linebreaks here, all of the linebreaks will be removed when the value is inserted.
   
 
@@ -403,7 +403,7 @@ since you can format the code samples with
 
 <p><strong>YAML</strong>:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">bikes</span><span class="pi">:</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">bikes</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">mountain bikes</span>
   <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">road bikes</span>
   <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">hybrid bikes</span>
@@ -412,7 +412,7 @@ since you can format the code samples with
 
 <p><strong>Markdown + Liquid:</strong></p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>site.data.samplelist.bikes<span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>site.data.samplelist.bikes<span class="w"> </span><span class="p">%}</span>
 * <span class="p">{{</span><span class="nv">item</span><span class="p">.</span><span class="nv">title</span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 </code></pre>
@@ -438,7 +438,7 @@ since you can format the code samples with
 
 <p><strong>YAML:</strong></p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">salesteams</span><span class="pi">:</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">salesteams</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">Regions</span>
  <span class="s">subfolderitems</span><span class="pi">:</span>
    <span class="pi">-</span> <span class="s">location</span><span class="pi">:</span> <span class="s">US</span>
@@ -475,7 +475,7 @@ since you can format the code samples with
 
 <p><strong>YAML:</strong></p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">toc</span><span class="pi">:</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">toc</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">Group 1</span>
     <span class="s">subfolderitems</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">page</span><span class="pi">:</span> <span class="s">Thing 1</span>
@@ -496,7 +496,7 @@ since you can format the code samples with
 
 <p><strong>Markdown + Liquid:</strong></p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>site.data.samplelist.toc<span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>site.data.samplelist.toc<span class="w"> </span><span class="p">%}</span>
 &lt;h3&gt;<span class="p">{{</span><span class="nv">item</span><span class="p">.</span><span class="nv">title</span><span class="p">}}</span>&lt;/h3&gt;
 &lt;ul&gt;
 <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>entry<span class="w"> </span>in<span class="w"> </span>item.subitems<span class="w"> </span><span class="p">%}</span>
@@ -530,14 +530,14 @@ since you can format the code samples with
 
 <p><strong>YAML:</strong></p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">something</span><span class="pi">:</span> <span class="nl">&amp;hello</span> <span class="s">Greetings earthling!</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">something</span><span class="pi">:</span> <span class="nl">&amp;hello</span> <span class="s">Greetings earthling!</span>
 <span class="s">myref</span><span class="pi">:</span> <span class="nv">*hello</span>
 </code></pre>
 </div>
 
 <p><strong>Markdown:</strong></p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">samplelist</span><span class="p">.</span><span class="nv">myref</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">samplelist</span><span class="p">.</span><span class="nv">myref</span><span class="w"> </span><span class="p">}}</span>
 </code></pre>
 </div>
 
@@ -555,7 +555,7 @@ since you can format the code samples with
 
 <p><strong>YAML:</strong></p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">about</span><span class="pi">:</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">about</span><span class="pi">:</span>
  <span class="pi">-</span> <span class="s">zero</span>
  <span class="pi">-</span> <span class="s">one</span>
  <span class="pi">-</span> <span class="s">two</span>
@@ -581,7 +581,7 @@ since you can format the code samples with
 
 <p><strong>YAML:</strong></p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">numbercolors</span><span class="pi">:</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">numbercolors</span><span class="pi">:</span>
  <span class="pi">-</span> <span class="s">zero</span><span class="pi">:</span>
    <span class="s">properties</span><span class="pi">:</span> <span class="s">red</span>
  <span class="pi">-</span> <span class="s">one</span><span class="pi">:</span>
@@ -595,7 +595,7 @@ since you can format the code samples with
 
 <p><strong>Markdown + Liquid:</strong></p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">samplelist</span><span class="p">.</span><span class="nv">numbercolors</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nv">properties</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">.</span><span class="nv">samplelist</span><span class="p">.</span><span class="nv">numbercolors</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nv">properties</span><span class="w"> </span><span class="p">}}</span>
 </code></pre>
 </div>
 
@@ -609,7 +609,7 @@ since you can format the code samples with
 
 <p><strong>YAML:</strong></p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mypages</span><span class="pi">:</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s">mypages</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">section1</span><span class="pi">:</span> <span class="s">Section 1</span>
   <span class="s">audience</span><span class="pi">:</span> <span class="s">developers</span>
   <span class="s">product</span><span class="pi">:</span> <span class="s">acme</span>
@@ -635,7 +635,7 @@ since you can format the code samples with
 
 <p><strong>Markdown + Liquid:</strong></p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>sec<span class="w"> </span>in<span class="w"> </span>site.data.samplelist.mypages<span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>sec<span class="w"> </span>in<span class="w"> </span>site.data.samplelist.mypages<span class="w"> </span><span class="p">%}</span>
 <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">sec</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"writers"</span><span class="w"> </span><span class="p">%}</span>
 * <span class="p">{{</span><span class="nv">sec</span><span class="p">.</span><span class="nv">url</span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
@@ -661,7 +661,7 @@ since you can format the code samples with
 
 <p>Now let’s adjust the condition just a little. Let’s add a second condition so that the <code class="highlighter-rouge">audience</code> property has to be <code class="highlighter-rouge">writers</code> and the <code class="highlighter-rouge">product</code> property has to be gizmo. This is how you would write it:</p>
 
-<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>sec<span class="w"> </span>in<span class="w"> </span>site.data.samplelist.mypages<span class="w"> </span><span class="p">%}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>sec<span class="w"> </span>in<span class="w"> </span>site.data.samplelist.mypages<span class="w"> </span><span class="p">%}</span>
 <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">sec</span><span class="p">.</span><span class="nv">audience</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"writers"</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">sec</span><span class="p">.</span><span class="nv">product</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"gizmo"</span><span class="w"> </span><span class="p">%}</span>
 * <span class="p">{{</span><span class="nv">sec</span><span class="p">.</span><span class="nv">url</span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
@@ -702,7 +702,7 @@ since you can format the code samples with
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Stefan Jacholke. All rights reserved. <br />
- Site last generated: Jun 30, 2016 <br />
+ Site last generated: Sep 9, 2016 <br />
 <p><img src="/algorithms/images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
